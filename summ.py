@@ -1,18 +1,12 @@
 #!/usr/bin/env python3
 
-import transformers, torch, os, numpy, sys
+import transformers, torch, os
 from transformers import AutoTokenizer, AutoModelForCausalLM
-from time import time
 
-sys.path.append('../Lib/')
+lama_size = '8B'
+model_path = f'/home1/shared/Models/Llama3/Llama-3.1-{lama_size}-Instruct'
 
-lama_size = '7b'
-drbench_dev_path = 'DrBench/Csv/summ_0821_dev.csv'
-model_path = f'/home1/shared/Models/Llama2/Llama-2-{lama_size}-chat-hf'
-
-print(model_path)
-
-# if '7b' in model_path:
+# if '8B' in model_path:
 #   os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 # elif '13b' in model_path:
 #   os.environ['CUDA_VISIBLE_DEVICES'] = '1'
@@ -22,33 +16,31 @@ print(model_path)
 def main():
   """Ask for input and feed into llama2"""
 
+  prompt = [{"role": "system", "content": "You are a helpful assistant, that responds as a pirate."},
+            {"role": "user", "content": "What's Deep Learning?"}]
+
   tokenizer = AutoTokenizer.from_pretrained(model_path)
+
   model = AutoModelForCausalLM.from_pretrained(
     model_path,
-    device_map='auto',
-    load_in_8bit=True)
-  pipeline = transformers.pipeline(
+    device_map='auto')
+
+  generator = transformers.pipeline(
     'text-generation',
     model=model,
     tokenizer=tokenizer,
-    torch_dtype=torch.float16,
+    torch_dtype=torch.bfloat16,
     device_map='auto')
 
-  prompt_text = "do something: "
+  generated_outputs = generator(
+    prompt,
+    do_sample=False,
+    temperature=1.0,
+    top_p=1,
+    max_new_tokens=50)
 
-  generated_outputs = pipeline(
-    prompt_text,
-    do_sample=True,
-    top_k=10,
-    num_return_sequences=1,
-    eos_token_id=tokenizer.eos_token_id,
-    temperature=0.001,
-    max_length=512)
-
-  print('************************************************\n')
   print(generated_outputs[0]['generated_text'])
 
 if __name__ == "__main__":
 
-  base_path = os.environ['DATA_ROOT']
   main()
