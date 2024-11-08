@@ -3,15 +3,13 @@
 import transformers, torch, os
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
+# model
 lama_size = '8B'
+device_map={ "": "cuda:7" } # i.e. put entire model on GPU 7
 model_path = f'/home1/shared/Models/Llama3/Llama-3.1-{lama_size}-Instruct'
 
-# if '8B' in model_path:
-#   os.environ['CUDA_VISIBLE_DEVICES'] = '0'
-# elif '13b' in model_path:
-#   os.environ['CUDA_VISIBLE_DEVICES'] = '1'
-# elif '70b' in model_path:
-#   os.environ['CUDA_VISIBLE_DEVICES'] = '2,3'
+# configuration
+
 
 def main():
   """Ask for input and feed into llama2"""
@@ -23,7 +21,7 @@ def main():
 
   model = AutoModelForCausalLM.from_pretrained(
     model_path,
-    device_map='auto')
+    device_map=device_map)
 
   generator = transformers.pipeline(
     'text-generation',
