@@ -2,11 +2,11 @@
 
 import transformers, torch, os
 from sympy.physics.units import temperature
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
 # model
 lama_size = '8B'
-device_map={ "": "cuda:7" } # i.e. put entire model on GPU 7
+device_map={ '': 'cuda:7' } # i.e. put entire model on GPU 7
 model_path = f'/home1/shared/Models/Llama3/Llama-3.1-{lama_size}-Instruct'
 
 # configuration
@@ -18,10 +18,17 @@ max_new_tokens = 100
 def main():
   """Ask for input and feed into llama2"""
 
+  quant_config = BitsAndBytesConfig(
+    load_in_4bit=True,
+    bnb_4bit_compute_dtype=torch.bfloat16,
+    bnb_4bit_use_double_quant=True,
+    bnb_4bit_quant_type= 'nf4')
+
   tokenizer = AutoTokenizer.from_pretrained(model_path)
 
   model = AutoModelForCausalLM.from_pretrained(
     model_path,
+    quantization_config=quant_config,
     device_map=device_map)
 
   generator = transformers.pipeline(
@@ -33,9 +40,9 @@ def main():
 
   while True:
 
-    user_input = input("Please enter some text: ")
-    prompt = [{"role": "system", "content": "You are a helpful assistant."},
-              {"role": "user", "content": user_input}]
+    user_input = input('\nPrompt: ')
+    prompt = [{'role': 'system', 'content': 'You are a helpful assistant.'},
+              {'role': 'user', 'content': user_input}]
 
     generated_outputs = generator(
       prompt,
