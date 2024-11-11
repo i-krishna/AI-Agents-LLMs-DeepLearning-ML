@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import transformers, torch, os
+import transformers, torch, os, json
 from sympy.physics.units import temperature
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
@@ -13,11 +13,12 @@ lama_size = '8B'
 device_map={ '': 'cuda:7' } # i.e. put entire model on GPU 7
 model_path = f'/home1/shared/Models/Llama3/Llama-3.1-{lama_size}-Instruct'
 
-# configuration
-do_sample = False
-t = 1.0
-top_p = 1
-max_new_tokens = 1000
+def read_json_file(settings_file='settings.json'):
+  """Read generation and other parameters"""
+
+  with open(settings_file, 'r') as file:
+    data = json.load(file)
+  return data
 
 def main():
   """Ask for input and feed into llama2"""
@@ -49,12 +50,14 @@ def main():
     prompt = [{'role': 'system', 'content': 'You are a helpful assistant.'},
               {'role': 'user', 'content': user_input}]
 
+    gen_params = read_json_file()
+
     generated_outputs = generator(
       prompt,
-      do_sample=do_sample,
-      temperature=t,
-      top_p=top_p,
-      max_new_tokens=max_new_tokens)
+      do_sample=gen_params['do_sample'],
+      temperature=gen_params['temperature'],
+      top_p=gen_params['top_p'],
+      max_new_tokens=gen_params['max_new_tokens'])
 
     print(generated_outputs[0]['generated_text'][2]['content'])
 
