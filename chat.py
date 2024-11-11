@@ -4,6 +4,10 @@ import transformers, torch, os
 from sympy.physics.units import temperature
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
+# suppress tensorflow warnings
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+
 # model
 lama_size = '8B'
 device_map={ '': 'cuda:7' } # i.e. put entire model on GPU 7
@@ -13,7 +17,7 @@ model_path = f'/home1/shared/Models/Llama3/Llama-3.1-{lama_size}-Instruct'
 do_sample = False
 t = 1.0
 top_p = 1
-max_new_tokens = 100
+max_new_tokens = 1000
 
 def main():
   """Ask for input and feed into llama2"""
@@ -36,7 +40,8 @@ def main():
     model=model,
     tokenizer=tokenizer,
     torch_dtype=torch.bfloat16,
-    device_map='auto')
+    device_map='auto',
+    pad_token_id=tokenizer.eos_token_id)
 
   while True:
 
