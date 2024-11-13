@@ -9,13 +9,14 @@ os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
 # model
 lama_size = '8B'
-device_map={ '': 'cuda:7' } # i.e. put entire model on GPU 7
+device_map={'': 'cuda:7' } # i.e. put entire model on GPU 7
 model_path = f'/home1/shared/Models/Llama3/Llama-3.1-{lama_size}-Instruct'
+settings_file='settings.json'
 
-def read_json_file(settings_file='settings.json'):
+def read_json_file(settings_json_file):
   """Read generation and other parameters"""
 
-  with open(settings_file, 'r') as file:
+  with open(settings_json_file, 'r') as file:
     data = json.load(file)
   return data
 
@@ -40,19 +41,19 @@ def main():
     model=model,
     tokenizer=tokenizer,
     torch_dtype=torch.bfloat16,
-    device_map='auto',
+    device_map=device_map,
     pad_token_id=tokenizer.eos_token_id)
 
-  gen_params = read_json_file()
-
   conversation = \
-    [{'role': 'system', 'content': 'You are a helpful assistant.'}]
+    [{'role': 'system',
+      'content': 'You are a helpful assistant. You always talk very briefly.'}]
 
   while True:
 
-    user_input = input('\nPrompt: ')
+    user_input = input('\n>>> ')
     conversation.append({'role': 'user', 'content': user_input})
 
+    gen_params = read_json_file(settings_file)
     output = generator(
       conversation,
       do_sample=gen_params['do_sample'],
@@ -61,7 +62,7 @@ def main():
       max_new_tokens=gen_params['max_new_tokens'])
 
     conversation = output[0]['generated_text']
-    print('answer:', conversation[-1]['content'])
+    print('\n', conversation[-1]['content'])
 
 if __name__ == "__main__":
 
