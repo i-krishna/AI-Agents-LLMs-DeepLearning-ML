@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import transformers, torch, os, json
-from sympy.physics.units import temperature
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
 # suppress tensorflow warnings
@@ -44,22 +43,25 @@ def main():
     device_map='auto',
     pad_token_id=tokenizer.eos_token_id)
 
+  gen_params = read_json_file()
+
+  conversation = \
+    [{'role': 'system', 'content': 'You are a helpful assistant.'}]
+
   while True:
 
     user_input = input('\nPrompt: ')
-    prompt = [{'role': 'system', 'content': 'You are a helpful assistant.'},
-              {'role': 'user', 'content': user_input}]
+    conversation.append({'role': 'user', 'content': user_input})
 
-    gen_params = read_json_file()
-
-    generated_outputs = generator(
-      prompt,
+    output = generator(
+      conversation,
       do_sample=gen_params['do_sample'],
       temperature=gen_params['temperature'],
       top_p=gen_params['top_p'],
       max_new_tokens=gen_params['max_new_tokens'])
 
-    print(generated_outputs[0]['generated_text'][2]['content'])
+    conversation = output[0]['generated_text']
+    print('conversation:', conversation)
 
 if __name__ == "__main__":
 
