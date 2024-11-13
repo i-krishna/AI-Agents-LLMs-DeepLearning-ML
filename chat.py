@@ -61,7 +61,7 @@ def main():
       max_new_tokens=gen_params['max_new_tokens'])
 
     conversation = output[0]['generated_text']
-    print('conversation:', conversation)
+    print('answer:', conversation[-1]['content'])
 
 if __name__ == "__main__":
 
