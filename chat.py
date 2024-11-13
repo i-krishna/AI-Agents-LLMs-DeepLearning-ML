@@ -8,9 +8,9 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
 # model
-lama_size = '8B'
+lama_size = '70B'
 device_map={'': 'cuda:7' } # i.e. put entire model on GPU 7
-model_path = f'/home1/shared/Models/Llama3/Llama-3.1-{lama_size}-Instruct'
+model_path = f'/home1/shared/Models/Llama3.1/Llama-3.1-{lama_size}-Instruct'
 settings_file='settings.json'
 
 def read_json_file(settings_json_file):
