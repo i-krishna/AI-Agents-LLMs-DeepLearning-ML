@@ -57,13 +57,14 @@ def main():
     device_map=device_map1,
     pad_token_id=tokenizer2.eos_token_id)
 
-  conversation1 = [{'role': 'system', 'content': settings['sys_prompt']}]
-  conversation2 = [{'role': 'system', 'content': settings['sys_prompt']}]
+  conversation1 = [{'role': 'system', 'content': 'You read what is said to you and comment on it. Your comments are pretty short.'}]
+  conversation2 = [{'role': 'system', 'content': 'You read what is said to you and comment on it. Your comments are pretty short.'}]
 
-  init_prompt = 'Say a random fact.'
+  init_prompt = 'What is the meaning of life?'
+  conversation1.append({'role': 'user', 'content': init_prompt})
+  conversation2.append({'role': 'user', 'content': init_prompt})
 
   while True:
-    conversation1.append({'role': 'user', 'content': init_prompt})
 
     output1 = generator1(
       conversation1,
@@ -73,7 +74,7 @@ def main():
       max_new_tokens=settings['max_new_tokens'])
 
     conversation1 = output1[0]['generated_text']
-    print('\n' + conversation1[-1]['content'])
+    print('\nA:' + conversation1[-1]['content'])
 
     response = conversation1[-1]['content']
     conversation2.append({'role': 'user', 'content': response})
@@ -86,7 +87,7 @@ def main():
       max_new_tokens=settings['max_new_tokens'])
 
     conversation2 = output2[0]['generated_text']
-    print('\n' + conversation2[-1]['content'])
+    print('\nB:' + conversation2[-1]['content'])
 
 
 if __name__ == "__main__":
