@@ -11,13 +11,6 @@ os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 device_map={'': 'cuda:0' } # i.e. put entire model on GPU 1
 settings_file='settings.json'
 
-def read_json_file(settings_json_file):
-  """Read generation and other parameters"""
-
-  with open(settings_json_file, 'r') as file:
-    data = json.load(file)
-  return data
-
 def main():
   """Ask for input and feed into llama2"""
 
@@ -48,7 +41,14 @@ def main():
 
   while True:
 
-    user_input = input('\n>>> ')
+    # check if we need to read the input from a file
+    if 'input_file' in settings:
+      input_file_text = open(settings['input_file']).read()
+      user_input = settings['user_prompt'] + input_file_text
+      settings['input_file'] = None
+    else:
+      user_input = input('\n>>> ')
+
     conversation.append({'role': 'user', 'content': user_input})
 
     output = generator(
@@ -60,6 +60,13 @@ def main():
 
     conversation = output[0]['generated_text']
     print('\n' + conversation[-1]['content'])
+
+def read_json_file(settings_json_file):
+  """Read generation and other parameters"""
+
+  with open(settings_json_file, 'r') as file:
+    data = json.load(file)
+  return data
 
 if __name__ == "__main__":
 
