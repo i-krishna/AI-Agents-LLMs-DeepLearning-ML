@@ -45,7 +45,7 @@ def main():
     if 'input_file' in settings:
       input_file_text = open(settings['input_file']).read()
       user_input = settings['user_prompt'] + input_file_text
-      settings['input_file'] = None
+      del settings['input_file']
     else:
       user_input = input('\n>>> ')
 
