@@ -13,7 +13,6 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
 # model
-device_map={'': 'cuda:0' } # i.e. put entire model on GPU 1
 settings_file='settings.json'
 
 def main():
@@ -32,14 +31,14 @@ def main():
   model = AutoModelForCausalLM.from_pretrained(
     settings['model_path'],
     quantization_config=quant_config,
-    device_map=device_map)
+    device_map=settings['device_map'])
 
   generator = transformers.pipeline(
     task='text-generation',
     model=model,
     tokenizer=tokenizer,
     torch_dtype=torch.bfloat16,
-    device_map=device_map,
+    device_map=settings['device_map'],
     pad_token_id=tokenizer.eos_token_id)
 
   conversation = [{'role': 'system', 'content': settings['sys_prompt']}]
