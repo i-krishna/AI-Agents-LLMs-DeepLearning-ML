@@ -86,4 +86,4 @@ if __name__ == "__main__":
     default='settings.json')
   args = parser.parse_args()
 
-  main(args.config_file)
+  main(args.settings)
