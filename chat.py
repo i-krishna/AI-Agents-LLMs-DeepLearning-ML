@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 
+"""
+The prompt may contain a file, e.g.
+[/home/dima/Data/MimicIII/Discharge/Text/160090_discharge.txt]. Summarize!
+"""
+
 import transformers, torch, os, json
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
@@ -12,7 +17,7 @@ device_map={'': 'cuda:0' } # i.e. put entire model on GPU 1
 settings_file='settings.json'
 
 def main():
-  """Ask for input and feed into llama2"""
+  """Chat with Llama"""
 
   settings = read_json_file(settings_file)
 
@@ -40,15 +45,8 @@ def main():
   conversation = [{'role': 'system', 'content': settings['sys_prompt']}]
 
   while True:
-
-    # check if we need to read the input from a file
-    if 'input_file' in settings:
-      input_file_text = open(settings['input_file']).read()
-      user_input = settings['user_prompt'] + input_file_text
-      del settings['input_file']
-    else:
-      user_input = input('\n>>> ')
-
+    user_input = input('\n>>> ')
+    user_input = expand_prompt(user_input)
     conversation.append({'role': 'user', 'content': user_input})
 
     output = generator(
@@ -60,6 +58,20 @@ def main():
 
     conversation = output[0]['generated_text']
     print('\n' + conversation[-1]['content'])
+
+def expand_prompt(input_text: str) -> str:
+  """Replace possible path to a file with the file"""
+
+  start = input_text.find('[')
+  end = input_text.find(']')
+
+  if start == -1 or end == -1:
+    return input_text
+
+  file_path = input_text[start+1:end]
+  file_content = open(file_path).read()
+
+  return input_text[:start] + '\n\n' + file_content + '\n' + input_text[end+1:]
 
 def read_json_file(settings_json_file):
   """Read generation and other parameters"""
