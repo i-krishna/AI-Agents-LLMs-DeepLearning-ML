@@ -5,17 +5,14 @@ The prompt may contain a file, e.g.
 [/home/dima/Data/MimicIII/Discharge/Text/160090_discharge.txt]. Summarize!
 """
 
-import transformers, torch, os, json
+import transformers, torch, os, json, argparse
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
 # suppress tensorflow warnings
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
-# model
-settings_file='settings.json'
-
-def main():
+def main(settings_file):
   """Chat with Llama"""
 
   settings = read_json_file(settings_file)
@@ -81,4 +78,12 @@ def read_json_file(settings_json_file):
 
 if __name__ == "__main__":
 
-  main()
+  parser = argparse.ArgumentParser()
+  parser.add_argument(
+    '--settings',
+    type=str,
+    help='LLM configuration file',
+    default='settings.json')
+  args = parser.parse_args()
+
+  main(args.config_file)
