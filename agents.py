@@ -7,17 +7,17 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
-# model
 device_map1 = {'': 'cuda:0'}
 device_map2 = {'': 'cuda:1'}
+
 settings_file = 'settings.json'
 
-def read_json_file(settings_json_file):
-  """Read generation and other parameters"""
+init_prompt = 'What is the meaning of life?'
 
-  with open(settings_json_file, 'r') as file:
-    data = json.load(file)
-  return data
+sys_prompt1 = "Your name is A. You read what your conversation partner (whose name is B) " \
+              "says and you comment on it."
+sys_prompt2 = "Your name is B. You read what your conversation partner (whose name is A) " \
+              "says and you comment on it."
 
 def main():
   """Ask for input and feed into llama2"""
@@ -54,18 +54,16 @@ def main():
     model=model2,
     tokenizer=tokenizer2,
     torch_dtype=torch.bfloat16,
-    device_map=device_map1,
+    device_map=device_map2,
     pad_token_id=tokenizer2.eos_token_id)
 
-  conversation1 = [{'role': 'system', 'content': 'You read what is said to you and comment on it. Your comments are pretty short.'}]
-  conversation2 = [{'role': 'system', 'content': 'You read what is said to you and comment on it. Your comments are pretty short.'}]
+  conversation1 = [{'role': 'system', 'content': sys_prompt1}]
+  conversation2 = [{'role': 'system', 'content': sys_prompt2}]
 
-  init_prompt = 'What is the meaning of life?'
   conversation1.append({'role': 'user', 'content': init_prompt})
   conversation2.append({'role': 'user', 'content': init_prompt})
 
   while True:
-
     output1 = generator1(
       conversation1,
       do_sample=settings['do_sample'],
@@ -74,12 +72,11 @@ def main():
       max_new_tokens=settings['max_new_tokens'])
 
     conversation1 = output1[0]['generated_text']
-    print('\nA:' + conversation1[-1]['content'])
+    print('\nA: ' + conversation1[-1]['content'])
 
-    response = conversation1[-1]['content']
-    conversation2.append({'role': 'user', 'content': response})
+    conversation2.append({'role': 'user', 'content': conversation1[-1]['content']})
 
-    output2 = generator1(
+    output2 = generator2(
       conversation2,
       do_sample=settings['do_sample'],
       temperature=settings['temperature'],
@@ -87,8 +84,16 @@ def main():
       max_new_tokens=settings['max_new_tokens'])
 
     conversation2 = output2[0]['generated_text']
-    print('\nB:' + conversation2[-1]['content'])
+    print('\nB: ' + conversation2[-1]['content'])
 
+    conversation1.append({'role': 'user', 'content': conversation2[-1]['content']})
+
+def read_json_file(settings_json_file):
+  """Read generation and other parameters"""
+
+  with open(settings_json_file, 'r') as file:
+    data = json.load(file)
+  return data
 
 if __name__ == "__main__":
 
