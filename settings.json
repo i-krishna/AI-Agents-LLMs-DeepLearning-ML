@@ -1,6 +1,6 @@
 {
     "sys_prompt": "You are a helpful assistant. You are very concise when possible.",
-    "model_path": "/home1/shared/Models/Llama3.1/Llama-3.1-8B-Instruct",
+    "model_path": "/home1/shared/Models/Llama3.1/Llama-3.1-70B-Instruct",
     "device_map": {"": "cuda:1"},
     "do_sample": true,
     "temperature": 1.0,

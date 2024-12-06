@@ -7,22 +7,27 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
+model_path1 = '/home1/shared/Models/Llama3.1/Llama-3.1-8B-Instruct'
+model_path2 = '/home1/shared/Models/Llama3.1/Llama-3.1-8B-Instruct'
+
+do_sample = True
+temperature = 1.0
+top_p = 0.9
+max_new_tokens = 5000
+
 device_map1 = {'': 'cuda:0'}
 device_map2 = {'': 'cuda:1'}
-
-settings_file = 'settings.json'
 
 init_prompt = 'What is the meaning of life?'
 
 sys_prompt1 = "Your name is A. You read what your conversation partner (whose name is B) " \
-              "says and you comment on it."
+              "says and you comment on it. Your comments are precise and to the point."
 sys_prompt2 = "Your name is B. You read what your conversation partner (whose name is A) " \
-              "says and you comment on it."
+              "says and you comment on it. Your comments are precise and to the point. " \
+              "You remind A what this conversation is about."
 
 def main():
   """Ask for input and feed into llama2"""
-
-  settings = read_json_file(settings_file)
 
   quant_config = BitsAndBytesConfig(
     load_in_4bit=True,
@@ -30,11 +35,11 @@ def main():
     bnb_4bit_use_double_quant=True,
     bnb_4bit_quant_type= 'nf4')
 
-  tokenizer1 = AutoTokenizer.from_pretrained(settings['model_path'])
-  tokenizer2 = AutoTokenizer.from_pretrained(settings['model_path'])
+  tokenizer1 = AutoTokenizer.from_pretrained(model_path1)
+  tokenizer2 = AutoTokenizer.from_pretrained(model_path2)
 
   model1 = AutoModelForCausalLM.from_pretrained(
-    settings['model_path'],
+    model_path1,
     quantization_config=quant_config,
     device_map=device_map1)
   generator1 = transformers.pipeline(
@@ -46,7 +51,7 @@ def main():
     pad_token_id=tokenizer1.eos_token_id)
 
   model2 = AutoModelForCausalLM.from_pretrained(
-    settings['model_path'],
+    model_path2,
     quantization_config=quant_config,
     device_map=device_map2)
   generator2 = transformers.pipeline(
@@ -66,10 +71,10 @@ def main():
   while True:
     output1 = generator1(
       conversation1,
-      do_sample=settings['do_sample'],
-      temperature=settings['temperature'],
-      top_p=settings['top_p'],
-      max_new_tokens=settings['max_new_tokens'])
+      do_sample=do_sample,
+      temperature=temperature,
+      top_p=top_p,
+      max_new_tokens=max_new_tokens)
 
     conversation1 = output1[0]['generated_text']
     print('\nA: ' + conversation1[-1]['content'])
@@ -78,22 +83,15 @@ def main():
 
     output2 = generator2(
       conversation2,
-      do_sample=settings['do_sample'],
-      temperature=settings['temperature'],
-      top_p=settings['top_p'],
-      max_new_tokens=settings['max_new_tokens'])
+      do_sample=do_sample,
+      temperature=temperature,
+      top_p=top_p,
+      max_new_tokens=max_new_tokens)
 
     conversation2 = output2[0]['generated_text']
     print('\nB: ' + conversation2[-1]['content'])
 
     conversation1.append({'role': 'user', 'content': conversation2[-1]['content']})
-
-def read_json_file(settings_json_file):
-  """Read generation and other parameters"""
-
-  with open(settings_json_file, 'r') as file:
-    data = json.load(file)
-  return data
 
 if __name__ == "__main__":
 
