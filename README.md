@@ -2,7 +2,7 @@
 
 If AI can Read papers, Understand them, Code and test them, and Evaluate results…
 
-Then we're heading toward AI improving AI, which could accelerate innovation at a pace faster than humans alone can achieve.
+Then we're heading toward AI improving AI (Reinforcement Machine Learning), which could accelerate innovation at a pace faster than humans alone can achieve.
 
 An AI Agent is an autonomous system that perceives its environment, processes information, and takes actions to achieve specific goals. In AI research, these agents can read papers, write code, run experiments, and even innovate.
 
@@ -26,7 +26,7 @@ An LLM (e.g., GPT-4, https://github.com/google/automl) judges replication accura
 
 4. Performance Analysis
 
-Evaluates if agents can replicate and improve research (Reinforcement Machine Learning). 
+Evaluates if agents can replicate and improve research. 
 
 # Text classification with LLM Models
 
