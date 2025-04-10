@@ -8,7 +8,7 @@ An AI Agent is an autonomous system that perceives its environment, processes in
 
 # Research Paper Replication
 
-[ai_agent_research_replication](/AI-Agents_LLMs/blob/main/ai_agent_researchpaper_replication.py)
+[ai_agent_research_replication](/ai_agent_researchpaper_replication.py)
 
 How AI Agents Conduct AI Research (4-Step Process)
 
