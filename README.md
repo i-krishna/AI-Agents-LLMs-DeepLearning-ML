@@ -22,7 +22,7 @@ Example: 1.3B InstructGPT outperforms 175B GPT-3 on instruction tasks
 
 1. Choose task
 
-2. Prepare dataset
+2. Prepare dataset - https://github.com/i-krishna/AI-Agents_LLMs/blob/main/fine-tune-llm.py#L22 
 
 3. Select base model
 
