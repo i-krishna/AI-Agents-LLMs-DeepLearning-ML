@@ -132,3 +132,62 @@ for text in text_list:
     predictions = torch.argmax(logits)
 
     print(text + " - " + id2label[predictions.tolist()])
+
+## Train model
+
+peft_config = LoraConfig(task_type="SEQ_CLS",
+                        r=4,
+                        lora_alpha=32,
+                        lora_dropout=0.01,
+                        target_modules = ['q_lin'])
+
+peft_config
+
+model = get_peft_model(model, peft_config)
+model.print_trainable_parameters()
+
+# hyperparameters
+lr = 1e-3
+batch_size = 4
+num_epochs = 10
+
+# define training arguments
+training_args = TrainingArguments(
+    output_dir= model_checkpoint + "-lora-text-classification",
+    learning_rate=lr,
+    per_device_train_batch_size=batch_size,
+    per_device_eval_batch_size=batch_size,
+    num_train_epochs=num_epochs,
+    weight_decay=0.01,
+    evaluation_strategy="epoch",
+    save_strategy="epoch",
+    load_best_model_at_end=True,
+)
+
+# creater trainer object
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=tokenized_dataset["train"],
+    eval_dataset=tokenized_dataset["validation"],
+    tokenizer=tokenizer,
+    data_collator=data_collator, # this will dynamically pad examples in each batch to be equal length
+    compute_metrics=compute_metrics,
+)
+
+# train model
+trainer.train()
+
+## Generate prediction
+
+model.to('mps') # moving to mps for Mac (can alternatively do 'cpu')
+
+print("Trained model predictions:")
+print("--------------------------")
+for text in text_list:
+    inputs = tokenizer.encode(text, return_tensors="pt").to("mps") # moving to mps for Mac (can alternatively do 'cpu')
+
+    logits = model(inputs).logits
+    predictions = torch.max(logits,1).indices
+
+    print(text + " - " + id2label[predictions.tolist()[0]])
