@@ -22,7 +22,10 @@ import numpy as np
 ## Dataset
 
 # how dataset was generated
-from datasets import load_dataset
+from datasets import Dataset, load_dataset, DatasetDict
+
+import numpy as np
+
 # load imdb data
 imdb_dataset = load_dataset("imdb")
 
@@ -39,5 +42,12 @@ x_test = imdb_dataset['test'][rand_idx]['text']
 y_test = imdb_dataset['test'][rand_idx]['label']
 
 # create new dataset
-dataset = DatasetDict({'train':Dataset.from_dict({'label':y_train,'text':x_train}),
-                              'validation':Dataset.from_dict({'label':y_test,'text':x_test})})
+train_dataset = Dataset.from_dict({'label': y_train, 'text': x_train})
+validation_dataset = Dataset.from_dict({'label': y_test, 'text': x_test})
+
+# create DatasetDict
+dataset = DatasetDict({
+    'train': train_dataset,
+    'validation': validation_dataset
+})
+
