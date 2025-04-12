@@ -70,7 +70,8 @@ model = AutoModelForSequenceClassification.from_pretrained(
 # display architecture
 model
 
-from transformers import AutoTokenizer  # Import AutoTokenizer 
+
+## Pre-process Data
 
 # create tokenizer
 tokenizer = AutoTokenizer.from_pretrained(model_checkpoint, add_prefix_space=True)
@@ -102,3 +103,32 @@ tokenized_dataset
 
 # create data collator
 data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
+
+## Evaluation
+
+# import accuracy evaluation metric
+accuracy = evaluate.load("accuracy") 
+
+# define an evaluation function to pass into trainer later
+def compute_metrics(p):
+    predictions, labels = p
+    predictions = np.argmax(predictions, axis=1)
+
+    return {"accuracy": accuracy.compute(predictions=predictions, references=labels)}
+
+## Apply untrained model to text 
+
+# define list of examples
+text_list = ["It was good.", "Not a fan, don't recommed.", "Better than the first one.", "This is not worth watching even once.", "This one is a pass."]
+
+print("Untrained model predictions:")
+print("----------------------------")
+for text in text_list:
+    # tokenize text
+    inputs = tokenizer.encode(text, return_tensors="pt")
+    # compute logits
+    logits = model(inputs).logits
+    # convert logits to label
+    predictions = torch.argmax(logits)
+
+    print(text + " - " + id2label[predictions.tolist()])
