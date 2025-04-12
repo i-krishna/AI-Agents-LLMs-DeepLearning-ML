@@ -57,8 +57,6 @@ Training accuracy improves; some overfitting observed.
 Slight improvement in real-world sentiment prediction
 
 
-
-
 #  Intelligence Explosion & AI Agents 
 
 If AI can Read papers, Understand them, Code and test them, and Evaluate results…
@@ -67,7 +65,7 @@ Then we're heading toward AI improving AI (Reinforcement Machine Learning), whic
 
 An AI Agent is an autonomous system that perceives its environment, processes information, and takes actions to achieve specific goals. In AI research, these agents can read papers, write code, run experiments, and even innovate.
 
-# Research Paper Replication
+## Research Paper Replication
 
 [ai_agent_research_replication](/ai_agent_researchpaper_replication.py)
 
