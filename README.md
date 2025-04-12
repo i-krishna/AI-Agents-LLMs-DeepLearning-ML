@@ -2,15 +2,15 @@
 
 - Fine-Tuning adjusts internal parameters (weights/biases) of a pre-trained LLM to specialize it for a specific task (e.g., GPT-3 → ChatGPT).
 
-- Base vs. Fine-Tuned Models:
+### Base vs. Fine-Tuned Models:
 
 Base (e.g., GPT-3): General-purpose text completion. 
 Fine-Tuned (e.g., text-DaVinci-003): Task-aligned and more practical. 
 
-- Smaller Fine-Tuned > Larger Base:
+### Smaller Fine-Tuned > Larger Base:
 Example: 1.3B InstructGPT outperforms 175B GPT-3 on instruction tasks
 
-- Three Fine-Tuning Methods:
+### Three Fine-Tuning Methods:
 
 1. Self-Supervised Learning: Predict next token using curated text
 
@@ -18,7 +18,7 @@ Example: 1.3B InstructGPT outperforms 175B GPT-3 on instruction tasks
 
 3. Reinforcement Learning: Based on Human feedback → reward model → PPO fine-tuning
 
-- Fine-Tuning Workflow (Supervised):
+## Fine-Tuning Workflow (Supervised):
 
 1. Choose task
 
@@ -30,7 +30,7 @@ Example: 1.3B InstructGPT outperforms 175B GPT-3 on instruction tasks
 
 5. Evaluate
 
-- Parameter Update Strategies:
+### Parameter Update Strategies:
 
 1. Full Training: Update all model weights
 
@@ -38,7 +38,7 @@ Example: 1.3B InstructGPT outperforms 175B GPT-3 on instruction tasks
 
 3. PEFT (e.g., LoRA): Freeze base weights, inject small trainable layers
 
-- LoRA (Low-Rank Adaptation):
+### LoRA (Low-Rank Adaptation):
 Dramatically reduces trainable parameters (e.g., 1M → 4K), improving efficiency
 
 Example – DistilBERT Sentiment Classifier:
@@ -49,10 +49,10 @@ Task: Binary sentiment classification
 
 Steps: Tokenization, formatting, padding, accuracy metric
 
-- Pre-Fine-Tuning Evaluation:
+## Pre-Fine-Tuning Evaluation:
 Base model performs ~50% accuracy (random chance)
 
-- Post-Fine-Tuning Observations:
+## Post-Fine-Tuning Observations:
 Training accuracy improves; some overfitting observed. 
 Slight improvement in real-world sentiment prediction
 
