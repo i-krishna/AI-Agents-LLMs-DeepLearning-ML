@@ -15,16 +15,12 @@ from transformers import (
     Trainer)
 
 from peft import PeftModel, PeftConfig, get_peft_model, LoraConfig
+
 import evaluate
 import torch
 import numpy as np
 
 ## Dataset
-
-# how dataset was generated
-from datasets import Dataset, load_dataset, DatasetDict
-
-import numpy as np
 
 # load imdb data
 imdb_dataset = load_dataset("imdb")
@@ -60,7 +56,6 @@ np.array(dataset['train']['label']).sum()/len(dataset['train']['label'])
 
 ## Model
 
-from transformers import AutoModelForSequenceClassification
 model_checkpoint = 'distilbert-base-uncased'
 # model_checkpoint = 'roberta-base' # you can alternatively use roberta-base but this model is bigger thus training will take longer
 
@@ -74,3 +69,36 @@ model = AutoModelForSequenceClassification.from_pretrained(
 
 # display architecture
 model
+
+from transformers import AutoTokenizer  # Import AutoTokenizer 
+
+# create tokenizer
+tokenizer = AutoTokenizer.from_pretrained(model_checkpoint, add_prefix_space=True)
+
+# add pad token if none exists
+if tokenizer.pad_token is None:
+    tokenizer.add_special_tokens({'pad_token': '[PAD]'})
+    model.resize_token_embeddings(len(tokenizer))
+
+# create tokenize function
+def tokenize_function(examples):
+    # extract text
+    text = examples["text"]
+
+    #tokenize and truncate text
+    tokenizer.truncation_side = "left"
+    tokenized_inputs = tokenizer(
+        text,
+        return_tensors="np",
+        truncation=True,
+        max_length=512
+    )
+
+    return tokenized_inputs
+
+# tokenize training and validation datasets
+tokenized_dataset = dataset.map(tokenize_function, batched=True)
+tokenized_dataset
+
+# create data collator
+data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
