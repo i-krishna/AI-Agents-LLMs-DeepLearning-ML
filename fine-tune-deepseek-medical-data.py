@@ -131,3 +131,137 @@ Please answer the following medical question.
 # Download the dataset using Hugging Face — function imported using from datasets import load_dataset
 dataset = load_dataset("FreedomIntelligence/medical-o1-reasoning-SFT","en", split = "train[0:500]",trust_remote_code=True) # Keep only first 500 rows
 dataset
+dataset[1]
+
+# Format the dataset to fit our prompt training style 
+EOS_TOKEN = tokenizer.eos_token  # Define EOS_TOKEN to tell model when to stop generating text during training
+EOS_TOKEN
+
+# Define formatting prompt function
+def formatting_prompts_func(examples):  # Takes a batch of dataset examples as input
+    inputs = examples["Question"]       # Extracts the medical question from the dataset
+    cots = examples["Complex_CoT"]      # Extracts the chain-of-thought reasoning (logical step-by-step explanation)
+    outputs = examples["Response"]      # Extracts the final model-generated response (answer)
+    
+    texts = []  # Initializes an empty list to store the formatted prompts
+    
+    # Iterate over the dataset, formatting each question, reasoning step, and response
+    for input, cot, output in zip(inputs, cots, outputs):  
+        text = train_prompt_style.format(input, cot, output) + EOS_TOKEN  # Insert values into prompt template & append EOS token
+        texts.append(text)  # Add the formatted text to the list
+
+    return {
+        "text": texts,  # Return the newly formatted dataset with a "text" column containing structured prompts
+    }
+
+# Update dataset formatting
+dataset_finetune = dataset.map(formatting_prompts_func, batched = True)
+dataset_finetune["text"][0]
+
+
+# LoRA, instead of modifying all weights of our base model, adds small trainable adapters to specific layers to  adapt quickly without disrupting base model structure.
+# This saves time, cost and resources needed. 
+
+# Apply LoRA (Low-Rank Adaptation) fine-tuning to the model 
+model_lora = FastLanguageModel.get_peft_model(
+    model,
+    r=16,  # LoRA rank: Determines the size of the trainable adapters (higher = more parameters, lower = more efficiency)
+    target_modules=[  # List of transformer layers where LoRA adapters will be applied
+        "q_proj",   # Query projection in the self-attention mechanism
+        "k_proj",   # Key projection in the self-attention mechanism
+        "v_proj",   # Value projection in the self-attention mechanism
+        "o_proj",   # Output projection from the attention layer
+        "gate_proj",  # Used in feed-forward layers (MLP)
+        "up_proj",    # Part of the transformer’s feed-forward network (FFN)
+        "down_proj",  # Another part of the transformer’s FFN
+    ],
+    lora_alpha=16,  # Scaling factor for LoRA updates (higher values allow more influence from LoRA layers)
+    lora_dropout=0,  # Dropout rate for LoRA layers (0 means no dropout, full retention of information)
+    bias="none",  # Specifies whether LoRA layers should learn bias terms (setting to "none" saves memory)
+    use_gradient_checkpointing="unsloth",  # Saves memory by recomputing activations instead of storing them (recommended for long-context fine-tuning)
+    random_state=3407,  # Sets a seed for reproducibility, ensuring the same fine-tuning behavior across runs
+    use_rslora=False,  # Whether to use Rank-Stabilized LoRA (disabled here, meaning fixed-rank LoRA is used)
+    loftq_config=None,  # Low-bit Fine-Tuning Quantization (LoFTQ) is disabled in this configuration
+)
+
+# Initialize the fine-tuning trainer — Imported using from trl import SFTTrainer
+trainer = SFTTrainer(
+    model=model_lora,  # The model to be fine-tuned
+    tokenizer=tokenizer,  # Tokenizer to process text inputs
+    train_dataset=dataset_finetune,  # Dataset used for training
+    dataset_text_field="text",  # Specifies which field in the dataset contains training text
+    max_seq_length=max_seq_length,  # Defines the maximum sequence length for inputs
+    dataset_num_proc=2,  # Uses 2 CPU threads to speed up data preprocessing
+
+    # Define training arguments
+    args=TrainingArguments(
+        per_device_train_batch_size=2,  # Number of examples processed per device (GPU) at a time
+        gradient_accumulation_steps=4,  # Accumulate gradients over 4 steps before updating weights
+        num_train_epochs=1, # Full fine-tuning run
+        warmup_steps=5,  # Gradually increases learning rate for the first 5 steps
+        max_steps=60,  # Limits training to 60 steps (useful for debugging; increase for full fine-tuning)
+        learning_rate=2e-4,  # Learning rate for weight updates (tuned for LoRA fine-tuning)
+        fp16=not is_bfloat16_supported(),  # Use FP16 (if BF16 is not supported) to speed up training
+        bf16=is_bfloat16_supported(),  # Use BF16 if supported (better numerical stability on newer GPUs)
+        logging_steps=10,  # Logs training progress every 10 steps
+        optim="adamw_8bit",  # Uses memory-efficient AdamW optimizer in 8-bit mode
+        weight_decay=0.01,  # Regularization to prevent overfitting
+        lr_scheduler_type="linear",  # Uses a linear learning rate schedule
+        seed=3407,  # Sets a fixed seed for reproducibility
+        output_dir="outputs",  # Directory where fine-tuned model checkpoints will be saved
+    ),
+)
+
+# Train Model: Start the fine-tuning process
+trainer_stats = trainer.train()
+
+# Save the fine-tuned model
+wandb.finish()
+
+# Run model inference after fine-tuning
+question = """A 61-year-old woman with a long history of involuntary urine loss during activities like coughing or sneezing 
+              but no leakage at night undergoes a gynecological exam and Q-tip test. Based on these findings, 
+              what would cystometry most likely reveal about her residual volume and detrusor contractions?"""
+
+# Load the inference model using FastLanguageModel (Unsloth optimizes for speed)
+FastLanguageModel.for_inference(model_lora)  # Unsloth has 2x faster inference!
+
+# Tokenize the input question with a specific prompt format and move it to the GPU
+inputs = tokenizer([prompt_style.format(question, "")], return_tensors="pt").to("cuda")
+
+# Generate a response using LoRA fine-tuned model with specific parameters
+outputs = model_lora.generate(
+    input_ids=inputs.input_ids,          # Tokenized input IDs
+    attention_mask=inputs.attention_mask, # Attention mask for padding handling
+    max_new_tokens=1200,                  # Maximum length for generated response
+    use_cache=True,                        # Enable cache for efficient generation
+)
+
+# Decode the generated response from tokenized format to readable text
+response = tokenizer.batch_decode(outputs)
+
+# Extract and print only the model's response part after "### Response:"
+print(response[0].split("### Response:")[1])
+
+
+question = """A 59-year-old man presents with a fever, chills, night sweats, and generalized fatigue, 
+              and is found to have a 12 mm vegetation on the aortic valve. Blood cultures indicate gram-positive, catalase-negative, 
+              gamma-hemolytic cocci in chains that do not grow in a 6.5% NaCl medium. 
+              What is the most likely predisposing factor for this patient's condition?"""
+
+# Tokenize the input question with a specific prompt format and move it to the GPU
+inputs = tokenizer([prompt_style.format(question, "")], return_tensors="pt").to("cuda")
+
+# Generate a response using LoRA fine-tuned model with specific parameters
+outputs = model_lora.generate(
+    input_ids=inputs.input_ids,          # Tokenized input IDs
+    attention_mask=inputs.attention_mask, # Attention mask for padding handling
+    max_new_tokens=1200,                  # Maximum length for generated response
+    use_cache=True,                        # Enable cache for efficient generation
+)
+
+# Decode the generated response from tokenized format to readable text
+response = tokenizer.batch_decode(outputs)
+
+# Extract and print only the model's response part after "### Response:"
+print(response[0].split("### Response:")[1])
