@@ -1,5 +1,7 @@
 # Topic 1.  Build a Medical Chatbot: Fine-tune Deepseek R1 LLM on medical data 
 
+- https://github.com/i-krishna/AI-Agents_LLMs/blob/main/fine-tune-deepseek-medical-data.py 
+
 - Fine-tuning method: LoRA (Low-Rank Adaptation) 
 
 - Tools:
