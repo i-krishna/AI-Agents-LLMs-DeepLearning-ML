@@ -44,3 +44,19 @@ run = wandb.init(
     job_type="training", 
     anonymous="allow"
 )
+
+# Loading DeepSeek R1 and the Tokenizer using FastLanguageModel.from_pretrained()
+
+# Set key parameters
+max_seq_length = 2048 # Define the maximum sequence length a model can handle (i.e. how many tokens can be processed at once)
+dtype = None # Set to default 
+load_in_4bit = True # Enables 4 bit quantization (Compression) — a memory saving optimization 
+
+# Load the DeepSeek R1 model and tokenizer using unsloth — imported using: from unsloth import FastLanguageModel
+model, tokenizer = FastLanguageModel.from_pretrained(
+    model_name="unsloth/DeepSeek-R1-Distill-Llama-8B",  # Load the pre-trained DeepSeek R1 model (8B parameter version)
+    max_seq_length=max_seq_length, # Ensure the model can process up to 2048 tokens at once
+    dtype=dtype, # Use the default data type (e.g., FP16 or BF16 depending on hardware support)
+    load_in_4bit=load_in_4bit, # Load the model in 4-bit quantization to save memory
+    token=hugging_face_token, # Use hugging face token
+)
