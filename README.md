@@ -1,4 +1,4 @@
-# 1.  Build a Medical Chatbot: Fine-tune Deepseek R1 LLM on medical data 
+# Topic 1.  Build a Medical Chatbot: Fine-tune Deepseek R1 LLM on medical data 
 
 - Fine-tuning method: LoRA (Low-Rank Adaptation) 
 
@@ -23,7 +23,7 @@ Obtain API tokens for Weights & Biases and Hugging Face
 
 Store them securely in Kaggle's secrets manager
 ```
-# 2. Steps to Fine-tune a pre-trained LLM (HuggingFace)
+# Topic 2. Steps to Fine-tune a pre-trained LLM (HuggingFace)
 
 - Fine-Tuning adjusts internal parameters (weights/biases) of a pre-trained LLM to specialize it for a specific task (e.g., GPT-3 → ChatGPT).
 
@@ -81,8 +81,7 @@ Base model performs ~50% accuracy (random chance)
 Training accuracy improves; some overfitting observed. 
 Slight improvement in real-world sentiment prediction
 
-
-#  Intelligence Explosion & AI Agents 
+#  Topic 3:  Intelligence Explosion & AI Agents 
 
 If AI can Read papers, Understand them, Code and test them, and Evaluate results…
 
