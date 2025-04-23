@@ -27,6 +27,8 @@ Store them securely in Kaggle's secrets manager
 ```
 # Topic 2. Steps to Fine-tune a pre-trained LLM (HuggingFace)
 
+- https://github.com/i-krishna/AI-Agents_LLMs/blob/main/fine-tune-llm.py
+- 
 - Fine-Tuning adjusts internal parameters (weights/biases) of a pre-trained LLM to specialize it for a specific task (e.g., GPT-3 → ChatGPT).
 
 ### Base vs. Fine-Tuned Models:
