@@ -1,4 +1,29 @@
-# Steps to Fine-tune a pre-trained LLM (HuggingFace)
+# 1.  Build a Medical Chatbot: Fine-tune Deepseek R1 LLM on medical data 
+
+- Fine-tuning method: LoRA (Low-Rank Adaptation) 
+
+- Tools:
+
+```
+Unsloth (efficient LLM fine-tuning)
+
+Hugging Face Transformers & Datasets
+
+Weights & Biases for experiment tracking
+
+PyTorch for auxiliary tasks
+
+Kaggle Notebooks / Google colab for free GPU access
+```
+- Setup instructions:
+```
+Activate GPU in Kaggle
+
+Obtain API tokens for Weights & Biases and Hugging Face
+
+Store them securely in Kaggle's secrets manager
+```
+# 2. Steps to Fine-tune a pre-trained LLM (HuggingFace)
 
 - Fine-Tuning adjusts internal parameters (weights/biases) of a pre-trained LLM to specialize it for a specific task (e.g., GPT-3 → ChatGPT).
 
