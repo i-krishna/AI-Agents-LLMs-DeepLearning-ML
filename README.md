@@ -91,3 +91,12 @@ Evaluates if agents can replicate and improve research.
 
 AI-Agents_LLMs/chat.py 
 AI-Agents_LLMs/agents.py
+
+
+## References 
+
+# Machine Learning
+- https://www.coursera.org/learn/machine-learning
+- https://see.stanford.edu/Course/CS229
+- https://www.datacamp.com/tracks/r-programming
+- https://www.datacamp.com/tracks/python-programming
