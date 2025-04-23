@@ -13,7 +13,7 @@ Weights & Biases for experiment tracking
 
 PyTorch for auxiliary tasks
 
-Kaggle Notebooks / Google colab for free GPU access
+Kaggle Notebooks for free GPU access
 ```
 - Setup instructions:
 ```
