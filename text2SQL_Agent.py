@@ -46,5 +46,6 @@ Final Answer: Alice and Charlie are customers from California.
 """
 For a small DB (like customers.db), injecting all schema works.
 
-But to scale to Large/Complex Schemas, for real-world systems (ERP, CRM, etc.) use RAG to retrive schema from Vector databases like FAISS/Chroma/Pinecone
+But to scale to Large/Complex Schemas, for real-world systems (ERP, CRM, etc.), 
+use RAG to retrive schema from Vector databases like FAISS/Chroma/Pinecone to enable Semantic Search for Relevant Schema
 """
