@@ -39,3 +39,12 @@ Action Input: SELECT * FROM customers WHERE state = 'California';
 Observation: [(1, 'Alice', 'alice@example.com', 'California'), (3, 'Charlie', 'charlie@example.com', 'California')]
 Final Answer: Alice and Charlie are customers from California.
 """
+
+
+# NOTE
+
+"""
+For a small DB (like customers.db), injecting all schema works.
+
+But to scale to Large/Complex Schemas, for real-world systems (ERP, CRM, etc.) use RAG to retrive schema from Vector databases like FAISS/Chroma/Pinecone
+"""
