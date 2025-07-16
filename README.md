@@ -1,3 +1,9 @@
+Why Agentic AI 
+
+<img width="795" height="449" alt="image" src="https://github.com/user-attachments/assets/45fc8d2b-31b4-49b6-b8c1-74d11cac49a0" />
+Ref: IBM Agentic AI Training 
+
+
 # Topic 1.  Build a Medical Chatbot: Fine-tune Deepseek R1 LLM on medical data 
 
 - https://github.com/i-krishna/AI-Agents_LLMs/blob/main/fine-tune-deepseek-medical-data.py 
