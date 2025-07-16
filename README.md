@@ -1,5 +1,7 @@
 Why Agentic AI 
 
+Autonomy, Efficiency, Human-AI Collaboration, Next-Gen Adaptability, Personalization, Productivity, Reasoning, Speed
+
 <img width="795" height="449" alt="image" src="https://github.com/user-attachments/assets/45fc8d2b-31b4-49b6-b8c1-74d11cac49a0" />
 Ref: IBM Agentic AI Training 
 
