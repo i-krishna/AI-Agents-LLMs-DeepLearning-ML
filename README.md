@@ -6,6 +6,8 @@ Autonomy, Efficiency, Human-AI Collaboration, Next-Gen Adaptability, Personaliza
 Ref: IBM Agentic AI Training 
 
 Benchmarking: Agents built with GPT 4.1 are best so far (Without hallucinations on shared docs) than 4.5 or other models in market: https://platform.openai.com/docs/guides/agents 
+https://openai.github.io/openai-agents-python/
+https://github.com/openai/openai-agents-python
 
 # Topic 1.  Build a Medical Chatbot: Fine-tune Deepseek R1 LLM on medical data 
 
