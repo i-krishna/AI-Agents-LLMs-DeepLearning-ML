@@ -1,3 +1,5 @@
+Agents that capture information beyond digital documents are inherently more advanced than those limited to pre-trained datasets or static documents. This is because the majority of the world's knowledge still exists outside of digitized formats. The next generation of AI agents will be those that can directly interface with the physical world—like Google's Gemini Assistant (Project Astra)—but with the precision, reasoning, and reliability of OpenAI’s models. Such agents are best positioned to lead the future of intelligent systems.
+
 Why Agentic AI 
 
 Autonomy, Efficiency, Human-AI Collaboration, Next-Gen Adaptability, Personalization, Productivity, Reasoning, Speed
@@ -8,8 +10,6 @@ Ref: IBM Agentic AI Training
 Benchmarking: Agents built with GPT 4.1 are best so far (Without hallucinations on shared docs) than 4.5 or other models in market: https://platform.openai.com/docs/guides/agents 
 https://openai.github.io/openai-agents-python/
 https://github.com/openai/openai-agents-python
-
-Agents that capture information beyond digital documents are inherently more advanced than those limited to pre-trained datasets or static documents. This is because the majority of the world's knowledge still exists outside of digitized formats. The next generation of AI agents will be those that can directly interface with the physical world—like Google's Gemini Assistant (Project Astra)—but with the precision, reasoning, and reliability of OpenAI’s models. Such agents are best positioned to lead the future of intelligent systems.
 
 # Topic 1.  Build a Medical Chatbot: Fine-tune Deepseek R1 LLM on medical data 
 
