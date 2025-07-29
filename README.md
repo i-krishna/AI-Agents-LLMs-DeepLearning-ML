@@ -12,8 +12,13 @@ Ref: IBM Agentic AI Training
 # Connect 2 AI Agents 
 
 Two AI Agents chat with each other using LLaMA 3.1 Models on separate GPUs
-
 Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/connect_2_ai_agents.py
+
+# Text-to-SQL Agent 
+
+This agent lets users query SQL databases using natural language; it converts questions into SQL, executing them on database, and fetches results.
+Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/text2SQL_agent.py 
+Frameworks: LangChain & OpenAI
 
 # Medical Chatbot Agent
 
