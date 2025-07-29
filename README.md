@@ -1,17 +1,17 @@
+# Advanced AI Agents
+
 Agents that capture information beyond digital documents are inherently more advanced than those limited to pre-trained datasets or static documents. This is because the majority of the world's knowledge still exists outside of digitized formats. The next generation of AI agents will be those that can directly interface with the physical world like Google's Gemini Assistant (Project Astra), but with the precision, reasoning, and reliability of OpenAI’s models. Such agents are best positioned to lead the future of intelligent systems.
 
-Why Agentic AI 
+**Why Agentic AI **
 
-Autonomy, Efficiency, Human-AI Collaboration, Next-Gen Adaptability, Personalization, Productivity, Reasoning, Speed
+Key reasons: Autonomy, Efficiency, Human-AI Collaboration, Next-Gen Adaptability, Personalization, Productivity, Reasoning, Speed
 
 <img width="795" height="449" alt="image" src="https://github.com/user-attachments/assets/45fc8d2b-31b4-49b6-b8c1-74d11cac49a0" />
 Ref: IBM Agentic AI Training 
 
-Benchmarking: Agents built with GPT 4.1 are best so far (Without hallucinations on shared docs) than 4.5 or other models in market: https://platform.openai.com/docs/guides/agents 
-https://openai.github.io/openai-agents-python/
-https://github.com/openai/openai-agents-python
+# Medical Chatbot Agent
 
-# Topic 1.  Build a Medical Chatbot: Fine-tune Deepseek R1 LLM on medical data 
+- Fine-tune Deepseek R1 LLM on medical data 
 
 - https://github.com/i-krishna/AI-Agents_LLMs/blob/main/fine-tune-deepseek-medical-data.py 
 
@@ -38,7 +38,9 @@ Obtain API tokens for Weights & Biases and Hugging Face
 
 Store them securely in Kaggle's secrets manager
 ```
-# Topic 2. Steps to Fine-tune a pre-trained LLM (HuggingFace)
+# User Reviews (Text/Sentiments) Classifier Agent
+
+- Steps to Fine-tune a pre-trained LLM (HuggingFace)
 
 - https://github.com/i-krishna/AI-Agents_LLMs/blob/main/fine-tune-llm.py
 - 
@@ -98,7 +100,9 @@ Base model performs ~50% accuracy (random chance)
 Training accuracy improves; some overfitting observed. 
 Slight improvement in real-world sentiment prediction
 
-#  Topic 3:  Intelligence Explosion & AI Agents 
+# Research Paper Code replication Agent
+
+- Intelligence Explosion & AI Agents 
 
 https://github.com/i-krishna/AI-Agents_LLMs/blob/main/ai_agent_researchpaper_replication.py 
 
@@ -128,10 +132,15 @@ An LLM (e.g., GPT-4, https://github.com/google/automl) judges replication accura
 
 Evaluates if agents can replicate and improve research. 
 
-# Text classification with LLM Models
 
-AI-Agents_LLMs/chat.py 
-AI-Agents_LLMs/agents.py
+**Benchmarking Agentic AI's**
+
+Agents built with GPT-4.1 outperform GPT-4.5 and other models in terms of hallucination-free performance on shared docs  
+
+https://platform.openai.com/docs/guides/agents 
+https://openai.github.io/openai-agents-python/
+https://github.com/openai/openai-agents-python
+
 
 
 ## References 
