@@ -2,42 +2,41 @@
 
 Agents that capture information beyond digital documents are inherently more advanced than those limited to pre-trained datasets or static documents. This is because the majority of the world's knowledge still exists outside of digitized formats. The next generation of AI agents will be those that can directly interface with the physical world like Google's Gemini Assistant (Project Astra), but with the precision, reasoning, and reliability of OpenAI’s models. Such agents are best positioned to lead the future of intelligent systems.
 
-**Why Agentic AI **
+** Why Agentic AI **
 
 Key reasons: Autonomy, Efficiency, Human-AI Collaboration, Next-Gen Adaptability, Personalization, Productivity, Reasoning, Speed
 
 <img width="795" height="449" alt="image" src="https://github.com/user-attachments/assets/45fc8d2b-31b4-49b6-b8c1-74d11cac49a0" />
 Ref: IBM Agentic AI Training 
 
+# Connect 2 AI Agents 
+
+Two AI Agents chat with each other using LLaMA 3.1 Mmdels on separate GPUs
+
+Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/connect_2_ai_agents.py
+
 # Medical Chatbot Agent
 
-- Fine-tune Deepseek R1 LLM on medical data 
+A LoRA-fine-tuned DeepSeek R1 model on medical data to power intelligent medical dialogue systems.
 
-- https://github.com/i-krishna/AI-Agents_LLMs/blob/main/fine-tune-deepseek-medical-data.py 
-
-- Fine-tuning method: LoRA (Low-Rank Adaptation) 
-
-- Tools:
-
+Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/medical_chatbot_agent.py 
+Method: LoRA (Low-Rank Adaptation)
+Frameworks:
 ```
-Unsloth (efficient LLM fine-tuning)
-
-Hugging Face Transformers & Datasets
-
-Weights & Biases for experiment tracking
-
-PyTorch for auxiliary tasks
-
-Kaggle Notebooks for free GPU access
+Unsloth (for efficient fine-tuning)
+Hugging Face (Transformers, Datasets)
+PyTorch (custom logic)
+Weights & Biases (experiment tracking)
+Kaggle Notebooks (free GPU) 
 ```
-- Setup instructions:
+Instructions:
 ```
 Activate GPU in Kaggle
-
-Obtain API tokens for Weights & Biases and Hugging Face
-
-Store them securely in Kaggle's secrets manager
+1. Enable GPU in Kaggle settings  
+2. Get API tokens (W&B, Hugging Face)  
+3. Add them securely to Kaggle Secrets Manager  
 ```
+
 # User Reviews (Text/Sentiments) Classifier Agent
 
 - Steps to Fine-tune a pre-trained LLM (HuggingFace)
