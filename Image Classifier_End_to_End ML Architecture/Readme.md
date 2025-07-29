@@ -1,8 +1,9 @@
 # Architecture Diagram
 
-<img width="81" height="295" alt="archi" src="https://github.com/user-attachments/assets/188fb3bc-d108-4e1f-9fcd-35f4521219bb" />
+<img width="152" height="584" alt="Architectuer" src="https://github.com/user-attachments/assets/a880ad47-5f24-4762-a9e8-1265639c6b5a" />
 
 Model Building Steps 
+
 1. Progressive Feature Extraction:
     * Early layers detect simple features (edges, colors)
     * Later layers detect complex patterns (shapes, objects)
