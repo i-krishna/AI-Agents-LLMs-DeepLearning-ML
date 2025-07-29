@@ -1,3 +1,12 @@
+# This Python script sets up a back-and-forth simulated conversation between two AI agents (A and B), 
+# both powered by LLaMA 3.1–8B models (one on GPU 0 and the other on GPU 1), 
+# using Hugging Face Transformers with quantized loading (4-bit) via BitsAndBytes for memory efficiency.
+
+# It creates a loop where two language models (Agent A and Agent B) 
+# take turns generating replies to each other, 
+# starting from an initial prompt like “What is the meaning of life?”
+
+
 #!/usr/bin/env python3
 
 import transformers, torch, os, json

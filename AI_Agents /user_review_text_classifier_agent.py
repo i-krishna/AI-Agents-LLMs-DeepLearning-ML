@@ -1,5 +1,13 @@
 # Fine-tuning Pre-Trained LLM
-# Ran in https://colab.research.google.com/ or local ide
+
+# Fine-tuning a Transformer model (DistilBERT) 
+# for sentiment classification on IMDB movie reviews using PEFT (LoRA)
+
+# Task: Sentiment classification
+# Input: Text
+# Method: Fine-tuning / PEFT
+# Model type: Transformer-based
+# Platform: https://colab.research.google.com/ or local ide
 
 ## Import necessary libraries
 

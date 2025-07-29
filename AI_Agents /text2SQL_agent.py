@@ -1,3 +1,15 @@
+# This code demonstrates how to build a natural language interface for querying a SQL database 
+# using LangChain and OpenAI’s language model. It loads a SQLite database of customers,
+# initializes an OpenAI LLM, and creates an agent that translates plain English questions into SQL queries, 
+# executes them on the database, and returns human-readable answers. 
+
+# For example, when asked “Which customers are from California?”, 
+# the agent generates the appropriate SQL query, runs it, and outputs the matching customer names. 
+# This approach works well for small databases where the schema can be included in the prompt, 
+# but for larger, more complex databases, integrating retrieval methods with vector stores is 
+# recommended to efficiently handle schema information. Overall, it enables users to interact with 
+# databases conversationally without needing to write SQL themselves.
+
 # pip install langchain openai sqlalchemy sqlite3
 # export OPENAI_API_KEY=your_key_here
 

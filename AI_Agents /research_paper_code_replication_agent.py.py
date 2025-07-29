@@ -1,3 +1,5 @@
+# This code reads a research paper, extract the experimental method, generate replication code, run it, and validate the results using GPT-4
+
 import openai
 from research_paper import ResearchPaper  # Hypothetical module
 
