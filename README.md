@@ -2,7 +2,7 @@
 
 Agents that capture information beyond digital documents are inherently more advanced than those limited to pre-trained datasets or static documents. This is because the majority of the world's knowledge still exists outside of digitized formats. The next generation of AI agents will be those that can directly interface with the physical world like Google's Gemini Assistant (Project Astra), but with the precision, reasoning, and reliability of OpenAI’s models. Such agents are best positioned to lead the future of intelligent systems.
 
-** Why Agentic AI **
+## Why AI Agents
 
 Key reasons: Autonomy, Efficiency, Human-AI Collaboration, Next-Gen Adaptability, Personalization, Productivity, Reasoning, Speed
 
@@ -20,7 +20,9 @@ Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_A
 A LoRA-fine-tuned DeepSeek R1 model on medical data to power intelligent medical dialogue systems.
 
 Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/medical_chatbot_agent.py 
+
 Method: LoRA (Low-Rank Adaptation)
+
 Frameworks:
 ```
 Unsloth (for efficient fine-tuning)
@@ -39,98 +41,67 @@ Activate GPU in Kaggle
 
 # User Reviews (Text/Sentiments) Classifier Agent
 
-- Steps to Fine-tune a pre-trained LLM (HuggingFace)
+A fine-tuned LLM (e.g., DistilBERT) for sentiment classification of user reviews
 
-- https://github.com/i-krishna/AI-Agents_LLMs/blob/main/fine-tune-llm.py
-- 
-- Fine-Tuning adjusts internal parameters (weights/biases) of a pre-trained LLM to specialize it for a specific task (e.g., GPT-3 → ChatGPT).
+Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/user_review_text_classifier_agent.py 
 
-### Base vs. Fine-Tuned Models:
+Fine-Tuning Overview:
+```
+Fine-Tuning adjusts internal parameters (weights/biases) of a pre-trained LLM to specialize it for a specific task.
 
-Base (e.g., GPT-3): General-purpose text completion. 
-Fine-Tuned (e.g., text-DaVinci-003): Task-aligned and more practical. 
+For Example: GPT-3 → text-DaVinci-003 (instruction-aligned)
 
-### Smaller Fine-Tuned > Larger Base:
-Example: 1.3B InstructGPT outperforms 175B GPT-3 on instruction tasks
+Base vs Fine-Tuned:
+Base Model (e.g., GPT-3): General-purpose completions
+Fine-Tuned Model (e.g., InstructGPT): Instruction-following and task-optimized
 
-### Three Fine-Tuning Methods:
+Smaller fine-tuned models (e.g., 1.3B InstructGPT) can outperform larger base models (175B GPT-3) on task-specific benchmarks.
+```
 
-1. Self-Supervised Learning: Predict next token using curated text
-
-2. Supervised Learning: Train on labeled input-output pairs
-
-3. Reinforcement Learning: Based on Human feedback → reward model → PPO fine-tuning
-
-## Fine-Tuning Workflow (Supervised):
-
+3 Fine-Tuning Types:
+1. Self-Supervised: Predict next token using raw text
+2. Supervised: Learn from labeled input-output pairs
+```
 1. Choose task
-
-2. Prepare dataset - https://github.com/i-krishna/AI-Agents_LLMs/blob/main/fine-tune-llm.py#L22 
-
+2. Prepare dataset
 3. Select base model
-
 4. Fine-tune
-
 5. Evaluate
+```
+3. Reinforcement Learning: Optimize behavior using human feedback (reward model, PPO fine-tuning)
 
-### Parameter Update Strategies:
+Parameter Update Strategies:
 
 1. Full Training: Update all model weights
-
-2. Transfer Learning: Update final layers only
-
+2. Transfer Learning: Tune only final layers
 3. PEFT (e.g., LoRA): Freeze base weights, inject small trainable layers
+LoRA (Low-Rank Adaptation): Dramatically reduces trainable parameters (e.g., 1M → 4K), improving efficiency
 
-### LoRA (Low-Rank Adaptation):
-Dramatically reduces trainable parameters (e.g., 1M → 4K), improving efficiency
-
-Example – DistilBERT Sentiment Classifier:
-
+Example:
 Model: distilbert-base-uncased
-
 Task: Binary sentiment classification
+Steps: Tokenization, padding, accuracy metric
 
-Steps: Tokenization, formatting, padding, accuracy metric
-
-## Pre-Fine-Tuning Evaluation:
-Base model performs ~50% accuracy (random chance)
-
-## Post-Fine-Tuning Observations:
-Training accuracy improves; some overfitting observed. 
-Slight improvement in real-world sentiment prediction
+Pre-Tuning: Base model perdorms ~50% accuracy (random chance)
+Post-Tuning: Improved training accuracy, slight overfitting observed, better real-world performance
 
 # Research Paper Code replication Agent
 
-- Intelligence Explosion & AI Agents 
+An autonomous agent that reads AI research papers, writes code, replicates experiments, and evaluates results — moving towards AI improving AI (Intelligence Explosion)
 
-https://github.com/i-krishna/AI-Agents_LLMs/blob/main/ai_agent_researchpaper_replication.py 
+Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/research_paper_code_replication_agent.py.py 
 
-If AI can Read papers, Understand them, Code and test them, and Evaluate results…
+Vision: If AI can read, understand, code, test, and evaluate research, we’re progressing toward self-improving AI systems—a core concept in reinforcement-driven machine learning acceleration. An AI Agent is an autonomous system that perceives its environment, processes information, and takes actions to achieve specific goals. In AI research, these agents can read papers, write code, run experiments, and even innovate.
 
-Then we're heading toward AI improving AI (Reinforcement Machine Learning), which could accelerate innovation at a pace faster than humans alone can achieve.
-
-An AI Agent is an autonomous system that perceives its environment, processes information, and takes actions to achieve specific goals. In AI research, these agents can read papers, write code, run experiments, and even innovate.
-
-## Research Paper Replication
-
-How AI Agents Conduct AI Research (4-Step Process)
-
+Research Replication Flow: How AI Agents Conduct AI Research (4-Step Process)
 1. Agent Submission
-
-Given research papers to replicate (e.g., OpenAI's PaperBench https://cdn.openai.com/papers/22265bac-3191-44e5-b057-7aaacd8e90cd/paperbench.pdf).
-
+Receives paper (e.g., OpenAI's PaperBench: https://cdn.openai.com/papers/22265bac-3191-44e5-b057-7aaacd8e90cd/paperbench.pdf)
 2. Reproduction Execution
-
-Develops codebases to reproduce paper results.
-
+Agent writes and runs the experimental code.
 3. Automated Grading
-
-An LLM (e.g., GPT-4, https://github.com/google/automl) judges replication accuracy.
-
+Evaluation by GPT-4 or another LLM https://github.com/google/automl 
 4. Performance Analysis
-
-Evaluates if agents can replicate and improve research. 
-
+Evaluates if agents can replicate and improve research or innovation.
 
 **Benchmarking Agentic AI's**
 
