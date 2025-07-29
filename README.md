@@ -11,7 +11,7 @@ Ref: IBM Agentic AI Training
 
 # Connect 2 AI Agents 
 
-Two AI Agents chat with each other using LLaMA 3.1 Mmdels on separate GPUs
+Two AI Agents chat with each other using LLaMA 3.1 Models on separate GPUs
 
 Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/connect_2_ai_agents.py
 
