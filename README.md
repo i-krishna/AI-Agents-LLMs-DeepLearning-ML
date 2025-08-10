@@ -6,14 +6,12 @@ This [usecase presentation](https://github.com/i-krishna/AI-Agents_LLMs_DeepLear
 
 Agents that capture information beyond digital documents are inherently more advanced than those limited to pre-trained datasets or static documents. This is because the majority of the world's knowledge still exists outside of digitized formats. The next generation of AI agents are those that can directly interface with the physical world like Google's Gemini Assistant (Project Astra), but with the precision, reasoning, and reliability of OpenAI’s models. Such agents are best positioned to lead the future of intelligent systems.
 
-## Why AI Agents
-
-Key reasons: Autonomy, Efficiency, Human-AI Collaboration, Next-Gen Adaptability, Personalization, Productivity, Reasoning, Speed
+## Connecting Multiple Agents 
 
 <img width="795" height="449" alt="image" src="https://github.com/user-attachments/assets/45fc8d2b-31b4-49b6-b8c1-74d11cac49a0" />
 Ref: IBM Agentic AI Training 
 
-# Connect 2 AI Agents 
+# Connect 2 Connversational Agents 
 
 Two AI Agents chat with each other using LLaMA 3.1 Models on separate GPUs.
 
@@ -123,7 +121,7 @@ https://platform.openai.com/docs/guides/agents
 https://openai.github.io/openai-agents-python/
 https://github.com/openai/openai-agents-python
 
-
+Key reasons to Use AI Agents: Autonomy, Efficiency, Human-AI Collaboration, Next-Gen Adaptability, Personalization, Productivity, Reasoning, Speed
 
 ## References 
 
