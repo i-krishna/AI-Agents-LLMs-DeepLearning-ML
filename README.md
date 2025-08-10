@@ -1,6 +1,6 @@
 # Integrating AI Agents into Existing Software Tools
 
-This [usecase](https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/IBM%20OpenPages-AI-Agent-Enablement.pdf) demonstrates how to integrate AI agents into existing enterprise software solutions to enhance automation and user support. It outlines the architecture and step-by-step process for building and deploying AI agents nd integrating them with IBM OpenPages Software for Governance, Risk, and Compliance (GRC). The AI agents are designed to assist business users with compliance request management (BPM), streamlining workflows and improving efficiency.
+This [usecase presentation](https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/IBM%20OpenPages-AI-Agent-Enablement.pdf) demonstrates how to seamlessly integrate AI agents into existing enterprise software platforms to drive automation and enhance user support. It details the architecture and step-by-step methodology for building, deploying and embedding AI agents within IBM OpenPages-a leading Governance, Risk, and Compliance (GRC) solution. These AI agents are designed to help business users manage compliance requests (BPM), streamline workflows and improve operational efficiency.
 
 # Advanced AI Agents
 
