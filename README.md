@@ -2,10 +2,6 @@
 
 This [usecase presentation](https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/Business%20Process%20Automation%20with%20AI-Agents.pdf) demonstrates how to seamlessly integrate AI agents into existing enterprise software platforms to drive automation and enhance user support. It details the architecture and step-by-step methodology for building, deploying and embedding AI agents within IBM OpenPages-a leading Governance, Risk, and Compliance (GRC) solution. These AI agents are designed to help business users manage compliance requests (BPM), streamline workflows and improve operational efficiency.
 
-# Advanced AI Agents
-
-Agents that capture information beyond digital documents are inherently more advanced than those limited to pre-trained datasets or static documents. This is because the majority of the world's knowledge still exists outside of digitized formats. The next generation of AI agents are those that can directly interface with the physical world like Google's Gemini Assistant (Project Astra), but with the precision, reasoning, and reliability of OpenAI’s models. Such agents are best positioned to lead the future of intelligent systems.
-
 # Medical Chatbot Agent
 
 A LoRA-fine-tuned DeepSeek R1 model on medical data to power intelligent medical dialogue systems. 
@@ -29,6 +25,11 @@ Activate GPU in Kaggle
 2. Get API tokens (W&B, Hugging Face)  
 3. Add them securely to Kaggle Secrets Manager  
 ```
+
+# Advanced AI Agents
+
+Agents that capture information beyond digital documents are inherently more advanced than those limited to pre-trained datasets or static documents. This is because the majority of the world's knowledge still exists outside of digitized formats. The next generation of AI agents are those that can directly interface with the physical world like Google's Gemini Assistant (Project Astra), but with the precision, reasoning, and reliability of OpenAI’s models. Such agents are best positioned to lead the future of intelligent systems.
+
 ## Connecting Multiple Agents 
 
 <img width="795" height="449" alt="image" src="https://github.com/user-attachments/assets/45fc8d2b-31b4-49b6-b8c1-74d11cac49a0" />
