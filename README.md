@@ -27,7 +27,9 @@ Frameworks: LangChain & OpenAI
 
 # Medical Chatbot Agent
 
-A LoRA-fine-tuned DeepSeek R1 model on medical data to power intelligent medical dialogue systems.
+A LoRA-fine-tuned DeepSeek R1 model on medical data to power intelligent medical dialogue systems. 
+
+The purpose of this [code](https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/medical_chatbot_agent.py) is to fine-tune a large language model (DeepSeek-R1) for advanced medical reasoning and clinical case analysis. By training the model on a specialized medical dataset using LoRA and Unsloth, it enables the model to generate accurate, step-by-step answers to complex medical questions, making it more effective for healthcare automation and decision support.
 
 Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/medical_chatbot_agent.py 
 
