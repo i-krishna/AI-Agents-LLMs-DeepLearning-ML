@@ -6,32 +6,11 @@ This [usecase presentation](https://github.com/i-krishna/AI-Agents_LLMs_DeepLear
 
 Agents that capture information beyond digital documents are inherently more advanced than those limited to pre-trained datasets or static documents. This is because the majority of the world's knowledge still exists outside of digitized formats. The next generation of AI agents are those that can directly interface with the physical world like Google's Gemini Assistant (Project Astra), but with the precision, reasoning, and reliability of OpenAI’s models. Such agents are best positioned to lead the future of intelligent systems.
 
-## Connecting Multiple Agents 
-
-<img width="795" height="449" alt="image" src="https://github.com/user-attachments/assets/45fc8d2b-31b4-49b6-b8c1-74d11cac49a0" />
-Ref: IBM Agentic AI Training 
-
-# Connect 2 Connversational Agents 
-
-Two AI Agents chat with each other using LLaMA 3.1 Models on separate GPUs.
-
-Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/connect_2_ai_agents.py
-
-# Text-to-SQL Agent 
-
-This agent lets users query SQL databases using natural language; it converts questions into SQL, executing them on database, and fetches results.
-
-Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/text2SQL_agent.py 
-
-Frameworks: LangChain & OpenAI
-
 # Medical Chatbot Agent
 
 A LoRA-fine-tuned DeepSeek R1 model on medical data to power intelligent medical dialogue systems. 
 
 The purpose of this [code](https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/medical_chatbot_agent.py) is to fine-tune a large language model (DeepSeek-R1) for advanced medical reasoning and clinical case analysis. By training the model on a specialized medical dataset using LoRA and Unsloth, it enables the model to generate accurate, step-by-step answers to complex medical questions, making it more effective for healthcare automation and decision support.
-
-Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/medical_chatbot_agent.py 
 
 Method: LoRA (Low-Rank Adaptation)
 
@@ -50,6 +29,24 @@ Activate GPU in Kaggle
 2. Get API tokens (W&B, Hugging Face)  
 3. Add them securely to Kaggle Secrets Manager  
 ```
+## Connecting Multiple Agents 
+
+<img width="795" height="449" alt="image" src="https://github.com/user-attachments/assets/45fc8d2b-31b4-49b6-b8c1-74d11cac49a0" />
+Ref: IBM Agentic AI Training 
+
+# Connect 2 Connversational Agents 
+
+Two AI Agents chat with each other using LLaMA 3.1 Models on separate GPUs.
+
+Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/connect_2_ai_agents.py
+
+# Text-to-SQL Agent 
+
+This agent lets users query SQL databases using natural language; it converts questions into SQL, executing them on database, and fetches results.
+
+Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/text2SQL_agent.py 
+
+Frameworks: LangChain & OpenAI
 
 # User Reviews (Text/Sentiments) Classifier Agent
 
