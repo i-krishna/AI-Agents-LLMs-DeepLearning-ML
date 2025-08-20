@@ -115,8 +115,9 @@ Evaluates if agents can replicate and improve research or innovation.
 
 **Benchmarking Agentic AI's**
 
-Agents built with GPT-4.1 outperform GPT-4.5 and other models in terms of hallucination-free performance on shared docs  
+Agents built with DeepSeek Outperform GPT models and GPT-4.1 outperform GPT-4.5 in terms of hallucination-free performance on shared docs  
 
+https://api-docs.deepseek.com/
 https://platform.openai.com/docs/guides/agents 
 https://openai.github.io/openai-agents-python/
 https://github.com/openai/openai-agents-python
