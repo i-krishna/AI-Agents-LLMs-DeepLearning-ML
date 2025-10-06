@@ -33,16 +33,16 @@ Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_A
 
 Frameworks: LangChain & OpenAI
 
-## Connecting Multiple Agents 
-
-<img width="795" height="449" alt="image" src="https://github.com/user-attachments/assets/45fc8d2b-31b4-49b6-b8c1-74d11cac49a0" />
-Ref: IBM Agentic AI Training 
-
 # Connect 2 Connversational Agents 
 
 Two AI Agents chat with each other using LLaMA 3.1 Models on separate GPUs.
 
 Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/connect_2_ai_agents.py
+
+## Connecting Multiple Agents 
+
+<img width="795" height="449" alt="image" src="https://github.com/user-attachments/assets/45fc8d2b-31b4-49b6-b8c1-74d11cac49a0" />
+Ref: IBM Agentic AI Training 
 
 # User Reviews (Text/Sentiments) Classifier Agent
 
