@@ -62,8 +62,25 @@ Fine-Tuned Model (e.g., InstructGPT): Instruction-following and task-optimized
 
 Smaller fine-tuned models (e.g., 1.3B InstructGPT) can outperform larger base models (175B GPT-3) on task-specific benchmarks.
 ```
+# Research Paper Code replication Agent
 
-3 Fine-Tuning Types:
+An autonomous agent that reads AI research papers, writes code, replicates experiments, and evaluates results — moving towards AI improving AI (Intelligence Explosion)
+
+Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/research_paper_code_replication_agent.py.py 
+
+Vision: If AI can read, understand, code, test, and evaluate research, we’re progressing toward self-improving AI systems—a core concept in reinforcement-driven machine learning acceleration. An AI Agent is an autonomous system that perceives its environment, processes information, and takes actions to achieve specific goals. In AI research, these agents can read papers, write code, run experiments, and even innovate.
+
+Research Replication Flow: How AI Agents Conduct AI Research (4-Step Process)
+1. Agent Submission
+Receives paper (e.g., OpenAI's PaperBench: https://cdn.openai.com/papers/22265bac-3191-44e5-b057-7aaacd8e90cd/paperbench.pdf)
+2. Reproduction Execution
+Agent writes and runs the experimental code.
+3. Automated Grading
+Evaluation by GPT-4 or another LLM https://github.com/google/automl 
+4. Performance Analysis
+Evaluates if agents can replicate and improve research or innovation.
+
+# Fine-Tuning Types:
 1. Self-Supervised: Predict next token using raw text
 2. Supervised: Learn from labeled input-output pairs
 ```
@@ -90,23 +107,6 @@ Steps: Tokenization, padding, accuracy metric
 Pre-Tuning: Base model perdorms ~50% accuracy (random chance)
 Post-Tuning: Improved training accuracy, slight overfitting observed, better real-world performance
 
-# Research Paper Code replication Agent
-
-An autonomous agent that reads AI research papers, writes code, replicates experiments, and evaluates results — moving towards AI improving AI (Intelligence Explosion)
-
-Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/research_paper_code_replication_agent.py.py 
-
-Vision: If AI can read, understand, code, test, and evaluate research, we’re progressing toward self-improving AI systems—a core concept in reinforcement-driven machine learning acceleration. An AI Agent is an autonomous system that perceives its environment, processes information, and takes actions to achieve specific goals. In AI research, these agents can read papers, write code, run experiments, and even innovate.
-
-Research Replication Flow: How AI Agents Conduct AI Research (4-Step Process)
-1. Agent Submission
-Receives paper (e.g., OpenAI's PaperBench: https://cdn.openai.com/papers/22265bac-3191-44e5-b057-7aaacd8e90cd/paperbench.pdf)
-2. Reproduction Execution
-Agent writes and runs the experimental code.
-3. Automated Grading
-Evaluation by GPT-4 or another LLM https://github.com/google/automl 
-4. Performance Analysis
-Evaluates if agents can replicate and improve research or innovation.
 
 # Advanced AI Agents
 
