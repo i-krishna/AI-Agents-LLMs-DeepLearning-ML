@@ -4,11 +4,11 @@ This [usecase presentation](https://github.com/i-krishna/AI-Agents_LLMs_DeepLear
 
 # Medical Chatbot Agent
 
-A LoRA-fine-tuned DeepSeek R1 model on medical data to power intelligent medical dialogue systems. 
+A LoRA-fine-tuned DeepSeek R1 model on medical data to power intelligent medical dialogue systems. Method: LoRA (Low-Rank Adaptation)
 
 The purpose of this [code](https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/medical_chatbot_agent.py) is to fine-tune a large language model (DeepSeek-R1) for advanced medical reasoning and clinical case analysis. By training the model on a specialized medical dataset using LoRA and Unsloth, it enables the model to generate accurate, step-by-step answers to complex medical questions, making it more effective for healthcare automation and decision support.
 
-Method: LoRA (Low-Rank Adaptation)
+Alternatively, you can fine-tune this model using H2O LLM Studio’s no-code graphical user interface (GUI) by following the steps outlined in this [guide](https://github.com/i-krishna/AI-Agents-LLMs-DeepLearning-ML/blob/main/H2O%20LLM%20Studio_Fine%20Tune_No%20Code%20GUI.pdf).
 
 Frameworks:
 ```
