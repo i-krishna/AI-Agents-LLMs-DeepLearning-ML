@@ -25,10 +25,13 @@ Activate GPU in Kaggle
 2. Get API tokens (W&B, Hugging Face)  
 3. Add them securely to Kaggle Secrets Manager  
 ```
+# Text-to-SQL Agent 
 
-# Advanced AI Agents
+This agent lets users query SQL databases using natural language; it converts questions into SQL, executing them on database, and fetches results.
 
-Agents that capture information beyond digital documents are inherently more advanced than those limited to pre-trained datasets or static documents. This is because the majority of the world's knowledge still exists outside of digitized formats. The next generation of AI agents are those that can directly interface with the physical world like Google's Gemini Assistant (Project Astra), but with the precision, reasoning, reliability and explaniability of model behavior. Such agents are best positioned to lead the future of intelligent systems.
+Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/text2SQL_agent.py 
+
+Frameworks: LangChain & OpenAI
 
 ## Connecting Multiple Agents 
 
@@ -40,14 +43,6 @@ Ref: IBM Agentic AI Training
 Two AI Agents chat with each other using LLaMA 3.1 Models on separate GPUs.
 
 Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/connect_2_ai_agents.py
-
-# Text-to-SQL Agent 
-
-This agent lets users query SQL databases using natural language; it converts questions into SQL, executing them on database, and fetches results.
-
-Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_Agents%20/text2SQL_agent.py 
-
-Frameworks: LangChain & OpenAI
 
 # User Reviews (Text/Sentiments) Classifier Agent
 
@@ -112,6 +107,11 @@ Agent writes and runs the experimental code.
 Evaluation by GPT-4 or another LLM https://github.com/google/automl 
 4. Performance Analysis
 Evaluates if agents can replicate and improve research or innovation.
+
+# Advanced AI Agents
+
+Agents that capture information beyond digital documents are inherently more advanced than those limited to pre-trained datasets or static documents. This is because the majority of the world's knowledge still exists outside of digitized formats. The next generation of AI agents are those that can directly interface with the physical world like Google's Gemini Assistant (Project Astra), but with the precision, reasoning, reliability and explaniability of model behavior. Such agents are best positioned to lead the future of intelligent systems.
+
 
 **Benchmarking Agentic AI's**
 
