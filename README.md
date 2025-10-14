@@ -62,7 +62,7 @@ Ref: IBM Agentic AI Training
 
 # RAG flow for Domain specific tasks
 
-[Example Code]([https://github.com/i-krishna/AI-Agents-LLMs-DeepLearning-ML/tree/main](https://github.com/i-krishna/AI-Agents-LLMs-DeepLearning-ML/blob/main/RAG_pyTorch.py)
+[Example Code](https://github.com/i-krishna/AI-Agents-LLMs-DeepLearning-ML/blob/main/RAG_pyTorch.py)
 
 Email Alert for Fraud Detection
 
