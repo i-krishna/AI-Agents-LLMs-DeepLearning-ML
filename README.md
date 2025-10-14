@@ -130,9 +130,15 @@ Key reasons to Use AI Agents: Autonomy, Efficiency, Human-AI Collaboration, Next
 
 <img width="760" height="646" alt="image" src="https://github.com/user-attachments/assets/585b8baf-7a73-45c0-b7f7-73d47848c95b" />
 
-2. LLM Integration into Data Pipeline 
+2. LLM Integration into Data Pipeline
+
+Closed Source API-based LLMs (OpenAI)
 
 <img width="1758" height="984" alt="image" src="https://github.com/user-attachments/assets/eef10a0d-6041-4bc5-b437-b1cf14924546" />
+
+Open Source API-based LLMs in HuggingFace Platform
+
+<img width="702" height="448" alt="image" src="https://github.com/user-attachments/assets/cb72d6d1-b641-48b5-b719-06266d02c513" />
 
 3. Classic Deep Learning & Machine Learning
 
@@ -145,8 +151,8 @@ Key reasons to Use AI Agents: Autonomy, Efficiency, Human-AI Collaboration, Next
 <img width="1074" height="705" alt="image" src="https://github.com/user-attachments/assets/3b7aa548-e1a4-4bc9-a103-34dbf12807dc" />
 
 ## References 
-- Open-source LLMs: www.gpt4all.io , LLaMA, Mistral, BERT
-- Closed Source LLMs: OpenAIs GPT, Anthropics Claude 
+- Open-source LLMs: www.gpt4all.io, LLaMA, Mistral, BERT
+- Closed-source LLMs: OpenAIs GPT, Anthropics Claude 
 - https://www.knime.com/ 
 - https://www.coursera.org/learn/machine-learning
 - https://see.stanford.edu/Course/CS229
