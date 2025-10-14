@@ -145,7 +145,7 @@ Key reasons to Use AI Agents: Autonomy, Efficiency, Human-AI Collaboration, Next
 Benchmarking: Agents built with DeepSeek Outperform GPT models and GPT-4.1 outperform GPT-4.5 in terms of hallucination-free performance on shared docs. 
 
 ## References 
-- Open-source LLMs: www.gpt4all.io, LLaMA, Mistral, BERT
+- Open-source LLMs: [Huggingface](https://huggingface.co/models), [Nomic AI](https://www.nomic.ai/), LLaMA, Mistral, BERT
 - Closed-source LLMs: OpenAIs GPT, Anthropics Claude
 - https://api-docs.deepseek.com/
 - https://platform.openai.com/docs/guides/agents 
