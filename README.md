@@ -124,9 +124,30 @@ https://github.com/openai/openai-agents-python
 
 Key reasons to Use AI Agents: Autonomy, Efficiency, Human-AI Collaboration, Next-Gen Adaptability, Personalization, Productivity, Reasoning, Speed
 
-## References 
+# Applications 
 
-# Machine Learning
+1. RAG flow for Domain specific tasks: Email Alert for Fraud Detection
+
+<img width="760" height="646" alt="image" src="https://github.com/user-attachments/assets/585b8baf-7a73-45c0-b7f7-73d47848c95b" />
+
+2. LLM Integration into Data Pipeline 
+
+<img width="1758" height="984" alt="image" src="https://github.com/user-attachments/assets/eef10a0d-6041-4bc5-b437-b1cf14924546" />
+
+3. Classic Deep Learning & Machine Learning
+
+<img width="1690" height="672" alt="image" src="https://github.com/user-attachments/assets/a69a9112-735f-4177-8f23-f2d4c4810b9b" />
+
+<img width="2528" height="962" alt="image" src="https://github.com/user-attachments/assets/b65b07e4-f8dc-4d91-9f45-f98c24978530" />
+
+<img width="1016" height="591" alt="image" src="https://github.com/user-attachments/assets/2203f9c3-9468-4646-b337-c76d895d5a3f" />
+
+<img width="1074" height="705" alt="image" src="https://github.com/user-attachments/assets/3b7aa548-e1a4-4bc9-a103-34dbf12807dc" />
+
+## References 
+- Open-source LLMs: www.gpt4all.io , LLaMA, Mistral, BERT
+- Closed Source LLMs: OpenAIs GPT, Anthropics Claude 
+- https://www.knime.com/ 
 - https://www.coursera.org/learn/machine-learning
 - https://see.stanford.edu/Course/CS229
 - https://www.datacamp.com/tracks/r-programming
