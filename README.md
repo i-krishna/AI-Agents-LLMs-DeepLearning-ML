@@ -150,6 +150,7 @@ Benchmarking: Agents built with DeepSeek Outperform GPT models and GPT-4.1 outpe
 ## References 
 - Open-source LLMs: [Huggingface](https://huggingface.co/models), [Nomic AI](https://www.nomic.ai/), LLaMA, Mistral, BERT
 - Closed-source LLMs: OpenAIs GPT, Anthropics Claude
+- https://python.langchain.com/docs/introduction/
 - https://api-docs.deepseek.com/
 - https://platform.openai.com/docs/guides/agents 
 - https://openai.github.io/openai-agents-python/
