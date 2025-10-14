@@ -124,7 +124,7 @@ https://github.com/openai/openai-agents-python
 
 Key reasons to Use AI Agents: Autonomy, Efficiency, Human-AI Collaboration, Next-Gen Adaptability, Personalization, Productivity, Reasoning, Speed
 
-# Applications 
+# Other Applications 
 
 1. RAG flow for Domain specific tasks: Email Alert for Fraud Detection
 
