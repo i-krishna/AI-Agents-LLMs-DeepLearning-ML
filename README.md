@@ -33,6 +33,19 @@ Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_A
 
 Frameworks: LangChain & OpenAI
 
+# LLM Integration into Data Pipeline
+  
+Automates the classification & description of species origins from the IRIS dataset by integrating an LLM into the data pipeline.  
+This approach eliminates manual INSERT/UPDATE operations into database for species documentation by developers or business analysts. For business-specific applications, this automation significantly accelerates the creation of domain-specific corpora, especially for specialized verticals or foreign languages, saving substantial time and effort while ensuring consistency and reliability.
+
+Closed Source API-based LLMs (OpenAI)
+
+<img width="1758" height="984" alt="image" src="https://github.com/user-attachments/assets/eef10a0d-6041-4bc5-b437-b1cf14924546" />
+
+Open Source API-based LLMs in HuggingFace Platform
+
+<img width="702" height="448" alt="image" src="https://github.com/user-attachments/assets/cb72d6d1-b641-48b5-b719-06266d02c513" />
+
 # Connect 2 Connversational Agents 
 
 Two AI Agents chat with each other using LLaMA 3.1 Models on separate GPUs.
@@ -106,19 +119,6 @@ Steps: Tokenization, padding, accuracy metric
 
 Pre-Tuning: Base model perdorms ~50% accuracy (random chance)
 Post-Tuning: Improved training accuracy, slight overfitting observed, better real-world performance
-
-# LLM Integration into Data Pipeline
-  
-Automates the classification & description of species origins from the IRIS dataset by integrating an LLM into the data pipeline.  
-This approach eliminates manual INSERT/UPDATE operations into database for species documentation by developers or business analysts. For business-specific applications, this automation significantly accelerates the creation of domain-specific corpora, especially for specialized verticals or foreign languages, saving substantial time and effort while ensuring consistency and reliability.
-
-Closed Source API-based LLMs (OpenAI)
-
-<img width="1758" height="984" alt="image" src="https://github.com/user-attachments/assets/eef10a0d-6041-4bc5-b437-b1cf14924546" />
-
-Open Source API-based LLMs in HuggingFace Platform
-
-<img width="702" height="448" alt="image" src="https://github.com/user-attachments/assets/cb72d6d1-b641-48b5-b719-06266d02c513" />
 
 # RAG flow for Domain specific tasks
 
