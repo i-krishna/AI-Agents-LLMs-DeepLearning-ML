@@ -126,11 +126,7 @@ Key reasons to Use AI Agents: Autonomy, Efficiency, Human-AI Collaboration, Next
 
 # Other Applications 
 
-1. RAG flow for Domain specific tasks: Email Alert for Fraud Detection
-
-<img width="760" height="646" alt="image" src="https://github.com/user-attachments/assets/585b8baf-7a73-45c0-b7f7-73d47848c95b" />
-
-2. LLM Integration into Data Pipeline
+1. LLM Integration into Data Pipeline
   
 Automates the classification & description of species origins from the IRIS dataset by integrating an LLM into the data pipeline.  
 This approach eliminates manual INSERT/UPDATE operations into database for species documentation by developers or business analysts. For business-specific applications, this automation significantly accelerates the creation of domain-specific corpora, especially for specialized verticals or foreign languages, saving substantial time and effort while ensuring consistency and reliability.
@@ -142,6 +138,10 @@ Closed Source API-based LLMs (OpenAI)
 Open Source API-based LLMs in HuggingFace Platform
 
 <img width="702" height="448" alt="image" src="https://github.com/user-attachments/assets/cb72d6d1-b641-48b5-b719-06266d02c513" />
+
+2. RAG flow for Domain specific tasks: Email Alert for Fraud Detection
+
+<img width="760" height="646" alt="image" src="https://github.com/user-attachments/assets/585b8baf-7a73-45c0-b7f7-73d47848c95b" />
 
 3. Classic Deep Learning & Machine Learning
 
