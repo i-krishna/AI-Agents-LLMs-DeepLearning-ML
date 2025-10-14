@@ -107,26 +107,7 @@ Steps: Tokenization, padding, accuracy metric
 Pre-Tuning: Base model perdorms ~50% accuracy (random chance)
 Post-Tuning: Improved training accuracy, slight overfitting observed, better real-world performance
 
-
-# Advanced AI Agents
-
-Agents that capture information beyond digital documents are inherently more advanced than those limited to pre-trained datasets or static documents. This is because the majority of the world's knowledge still exists outside of digitized formats. The next generation of AI agents are those that can directly interface with the physical world like Google's Gemini Assistant (Project Astra), but with the precision, reasoning, reliability and explaniability of model behavior. Such agents are best positioned to lead the future of intelligent systems.
-
-
-**Benchmarking Agentic AI's**
-
-Agents built with DeepSeek Outperform GPT models and GPT-4.1 outperform GPT-4.5 in terms of hallucination-free performance on shared docs  
-
-https://api-docs.deepseek.com/
-https://platform.openai.com/docs/guides/agents 
-https://openai.github.io/openai-agents-python/
-https://github.com/openai/openai-agents-python
-
-Key reasons to Use AI Agents: Autonomy, Efficiency, Human-AI Collaboration, Next-Gen Adaptability, Personalization, Productivity, Reasoning, Speed
-
-# Other Applications 
-
-1. LLM Integration into Data Pipeline
+# LLM Integration into Data Pipeline
   
 Automates the classification & description of species origins from the IRIS dataset by integrating an LLM into the data pipeline.  
 This approach eliminates manual INSERT/UPDATE operations into database for species documentation by developers or business analysts. For business-specific applications, this automation significantly accelerates the creation of domain-specific corpora, especially for specialized verticals or foreign languages, saving substantial time and effort while ensuring consistency and reliability.
@@ -139,11 +120,13 @@ Open Source API-based LLMs in HuggingFace Platform
 
 <img width="702" height="448" alt="image" src="https://github.com/user-attachments/assets/cb72d6d1-b641-48b5-b719-06266d02c513" />
 
-2. RAG flow for Domain specific tasks: Email Alert for Fraud Detection
+# RAG flow for Domain specific tasks
+
+Email Alert for Fraud Detection
 
 <img width="760" height="646" alt="image" src="https://github.com/user-attachments/assets/585b8baf-7a73-45c0-b7f7-73d47848c95b" />
 
-3. Classic Deep Learning & Machine Learning
+# Classic Deep Learning & Machine Learning
 
 <img width="1690" height="672" alt="image" src="https://github.com/user-attachments/assets/a69a9112-735f-4177-8f23-f2d4c4810b9b" />
 
@@ -153,9 +136,21 @@ Open Source API-based LLMs in HuggingFace Platform
 
 <img width="1074" height="705" alt="image" src="https://github.com/user-attachments/assets/3b7aa548-e1a4-4bc9-a103-34dbf12807dc" />
 
+# Advanced AI Agents
+
+Agents that capture information beyond digital documents are inherently more advanced than those limited to pre-trained datasets or static documents. This is because the majority of the world's knowledge still exists outside of digitized formats. The next generation of AI agents are those that can directly interface with the physical world like Google's Gemini Assistant (Project Astra), but with the precision, reasoning, reliability and explaniability of model behavior. Such agents are best positioned to lead the future of intelligent systems. 
+
+Key reasons to Use AI Agents: Autonomy, Efficiency, Human-AI Collaboration, Next-Gen Adaptability, Personalization, Productivity, Reasoning, Speed. 
+
+Benchmarking: Agents built with DeepSeek Outperform GPT models and GPT-4.1 outperform GPT-4.5 in terms of hallucination-free performance on shared docs. 
+
 ## References 
 - Open-source LLMs: www.gpt4all.io, LLaMA, Mistral, BERT
-- Closed-source LLMs: OpenAIs GPT, Anthropics Claude 
+- Closed-source LLMs: OpenAIs GPT, Anthropics Claude
+- https://api-docs.deepseek.com/
+- https://platform.openai.com/docs/guides/agents 
+- https://openai.github.io/openai-agents-python/
+- https://github.com/openai/openai-agents-python
 - https://www.knime.com/ 
 - https://www.coursera.org/learn/machine-learning
 - https://see.stanford.edu/Course/CS229
