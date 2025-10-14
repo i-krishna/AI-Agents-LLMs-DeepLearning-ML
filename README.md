@@ -75,6 +75,8 @@ Fine-Tuned Model (e.g., InstructGPT): Instruction-following and task-optimized
 
 Smaller fine-tuned models (e.g., 1.3B InstructGPT) can outperform larger base models (175B GPT-3) on task-specific benchmarks.
 ```
+<img width="1074" height="705" alt="image" src="https://github.com/user-attachments/assets/3b7aa548-e1a4-4bc9-a103-34dbf12807dc" />
+
 # Research Paper Code replication Agent
 
 An autonomous agent that reads AI research papers, writes code, replicates experiments, and evaluates results — moving towards AI improving AI (Intelligence Explosion)
@@ -133,8 +135,6 @@ Email Alert for Fraud Detection
 <img width="2528" height="962" alt="image" src="https://github.com/user-attachments/assets/b65b07e4-f8dc-4d91-9f45-f98c24978530" />
 
 <img width="1016" height="591" alt="image" src="https://github.com/user-attachments/assets/2203f9c3-9468-4646-b337-c76d895d5a3f" />
-
-<img width="1074" height="705" alt="image" src="https://github.com/user-attachments/assets/3b7aa548-e1a4-4bc9-a103-34dbf12807dc" />
 
 # Advanced AI Agents
 
