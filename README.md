@@ -60,6 +60,14 @@ Code: https://github.com/i-krishna/AI-Agents_LLMs_DeepLearning_ML/blob/main/AI_A
 <img width="795" height="449" alt="image" src="https://github.com/user-attachments/assets/45fc8d2b-31b4-49b6-b8c1-74d11cac49a0" />
 Ref: IBM Agentic AI Training 
 
+# RAG flow for Domain specific tasks
+
+[Example Code ](https://github.com/i-krishna/AI-Agents-LLMs-DeepLearning-ML/tree/main)
+
+Email Alert for Fraud Detection
+
+<img width="760" height="646" alt="image" src="https://github.com/user-attachments/assets/585b8baf-7a73-45c0-b7f7-73d47848c95b" />
+
 # User Reviews (Text/Sentiments) Classifier Agent
 
 A fine-tuned LLM (e.g., DistilBERT) for sentiment classification of user reviews
@@ -124,14 +132,6 @@ Steps: Tokenization, padding, accuracy metric
 
 Pre-Tuning: Base model perdorms ~50% accuracy (random chance)
 Post-Tuning: Improved training accuracy, slight overfitting observed, better real-world performance
-
-# RAG flow for Domain specific tasks
-
-[Example Code ](https://github.com/i-krishna/AI-Agents-LLMs-DeepLearning-ML/tree/main)
-
-Email Alert for Fraud Detection
-
-<img width="760" height="646" alt="image" src="https://github.com/user-attachments/assets/585b8baf-7a73-45c0-b7f7-73d47848c95b" />
 
 # Classic Deep Learning & Machine Learning
 
