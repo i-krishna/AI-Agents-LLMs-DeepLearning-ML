@@ -130,7 +130,7 @@ Key reasons to Use AI Agents: Autonomy, Efficiency, Human-AI Collaboration, Next
 
 <img width="760" height="646" alt="image" src="https://github.com/user-attachments/assets/585b8baf-7a73-45c0-b7f7-73d47848c95b" />
 
-2. LLM Integration into Data Pipeline
+2. LLM Integration into Data Pipeline: Automate the classification & description of species origins from the IRIS dataset by integrating an LLM into the data pipeline, eliminating the need for manual data entry of species description by developers / analysts.
 
 Closed Source API-based LLMs (OpenAI)
 
